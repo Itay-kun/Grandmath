@@ -1168,7 +1168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  titleElement.addEventListener('contextmenu', function() {
+  titleElement.addEventListener('dblclick', function() {
     popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
     if(popover.style.display !== 'none'){
       Operator.allOperators()[0].remove()
