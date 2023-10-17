@@ -1168,7 +1168,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  titleElement.addEventListener('oncontextmenue', function() {
+  titleElement.addEventListener('contextmenu', function() {
     popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
     if(popover.style.display !== 'none'){
       Operator.allOperators()[0].remove()
