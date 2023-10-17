@@ -5,11 +5,13 @@
   --font-size-multiplier: 3;
   --default-font-size: calc(1ch * var(--font-size-multiplier));
   --number-of-answers:4;
+  --default-background-color:black;
   --max-size:95%; 
 }
 
 html,body {
   padding-top: 1vh;
+  background-color: var(--default-background-color);
   color: var(--main-color);
   font-size: var(--default-font-size); /* Adjust the value to increase or decrease the font size */
   
@@ -21,12 +23,13 @@ html,body {
 }
 
 #popover-container {
-  touch-action: pan-y;
   z-index: 9999;
+  display: inline-flex;
   position: absolute;
   background-color: #b1a8b4;
+  
   opacity: 80%;
-  box-shadow: #1e90ff;
+  /* box-shadow: #1e90ff; */
   font: 1.5em sans-serif;
 }
 

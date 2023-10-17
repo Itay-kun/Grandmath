@@ -1154,6 +1154,13 @@ window.addEventListener('resize', setContainerFontSize);
   problemElement.displayQuestion()
 }
 
+function toggleSettingsPopover() {
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'inline-flex' : 'none';
+  if(popover.style.display !== 'none'){
+    Operator.allOperators()[0].remove()
+    Operator.allOperators()[0].remove()
+    addOperatorsIcons();}
+}
 /************************************************** */
 document.addEventListener('DOMContentLoaded', function() {
   const popover = document.getElementById('popover-container');
@@ -1168,16 +1175,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
-  
-  titleElement.addEventListener('dblclick', function() {
-    popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
-    if(popover.style.display !== 'none'){
-      Operator.allOperators()[0].remove()
-      Operator.allOperators()[0].remove()
-      addOperatorsIcons();}
-  }
-  );
+  toggleSettingsPopover()
+
+  titleElement.addEventListener('dblclick', toggleSettingsPopover())
+  popover.addEventListener('dblclick', toggleSettingsPopover())
 });
 /************************************************** */
 
