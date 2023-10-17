@@ -1,5 +1,6 @@
 var realAnswer, question, num1, operator, num2, answers, problem
 var settings;
+const popover = document.getElementById('popover-container');
 
 /* Get the element you want displayed in fullscreen mode (a video in this example): */
 //var elem = document.getElementById("myvideo");
@@ -1162,9 +1163,7 @@ function toggleSettingsPopover() {
     addOperatorsIcons();}
 }
 /************************************************** */
-document.addEventListener('DOMContentLoaded', function() {
-  const popover = document.getElementById('popover-container');
-  
+document.addEventListener('DOMContentLoaded', function() {  
   fetch('settings.html')
   .then(response => response.text())
   .then(data => {
