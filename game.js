@@ -1064,7 +1064,7 @@ function loadGameSettings() {
     }
 
     document.body.style.setProperty('--main-color', applied_settings['textColor']);
-    document.body.style.setProperty('--font-size-multiplier', applied_settings['fontSizeMultiplier']);
+    document.body.style.setProperty('--font-size-multiplier', (applied_settings['fontSizeMultiplier']*0.1));
     return applied_settings
   }
 
