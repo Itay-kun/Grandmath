@@ -1168,6 +1168,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
+  
   titleElement.addEventListener('dblclick', function() {
     popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'block' : 'none';
     if(popover.style.display !== 'none'){
