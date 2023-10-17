@@ -3,7 +3,7 @@
   --white: #ffffff;
   --main-color:yellow;
   --font-size-multiplier: 3;
-  --default-font-size: calc(5vw * var(--font-size-multiplier));
+  --default-font-size: calc(4vw * var(--font-size-multiplier));
   --number-of-answers:4;
   --max-size:95%; 
 }
@@ -22,11 +22,11 @@ html,body {
 }
 
 #popover-container {
+  z-index: 9999;
   position: absolute;
-  background-color: #000;
+  background-color: #290037;
   opacity: 80%;
   box-shadow: #1e90ff;
-  z-index: 9999; /* some heigh value */
 }
 
 #question-container{
