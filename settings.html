@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" lang="enlish">
+  <title>Settings</title>
+  <link rel="stylesheet" href="settings_styles.css">
+</head>
+
+<body>
+  <h1>settings</h1>
+
+  <script src="settings.js" defer></script>
+  <form id="settings_form">
+
+    <fieldset id="operator" class="operators">
+      <legend class="checkbox-group-legend">Choose your operators</legend>
+    </fieldset>
+    <br>
+    <fieldset id="numbers_range">
+      <legend>Numbers Range:</legend>
+      <label for="lowestNumber">Lowest number:</label>
+      <input type="number" id="lowestNumber" name="lowestNumber">
+      <br><br>
+      <label for="highestNumber">Highest number:</label>
+      <input type="number" id="highestNumber" name="highestNumber">
+    </fieldset>
+    <br>
+    <fieldset id="synUtterance">
+      <legend>Speech Settings:</legend>
+      <label for="voice">voice:</label> <select id="voice" name="voice"></select>
+      <br>
+
+      <div class=slider_wrapper>
+        <label for="volume">Volume:</label>
+        <input type="range" min="1" max="100" value="100" step="1" class="slider" id="volume">
+        <output class="bubble"></output>
+      </div>
+
+      <br>
+      <div class=slider_wrapper>
+        <label for="rate">Rate:</label>
+        <input type="range" min="1" max="10" value="1" step="1" class="slider" id="rate" name="rate">
+        <output class="bubble"></output>
+      </div>
+        <br>
+      <div class=slider_wrapper>
+        <label for="pitch">Pitch:</label>
+        <input type="range" min="1" max="10" value="1" step="1" class="slider" id="pitch" name="pitch">
+        <output class="bubble"></output>
+      </div>
+      <br>
+    </fieldset>
+    <br>
+    <fieldset id="textSettings">
+      <legend>Text Settings:</legend>
+      <label for="textColor">Text Color:</label>
+      <input type="color" id="textColor" name="textColor" value='#FFFF00'>
+      <br>
+      <label for="fontSizeMultiplier">Text Size:</label>
+      <input type="number" id="fontSizeMultiplier" name="fontSizeMultiplier" value='22'>
+    </fieldset>
+  </form>
+  <br>
+  <button id="saveSettings" type="button" onclick="saveSettings(false)">Save Setings</button>
+  <br>
+  <button id="loadSettings" type="button" onclick="loadSettings()">Load Setings</button>
+  <br>
+  <!-- <button id="Close" type="button" onclick="window.close()">Close</button> -->
+  <br>
+
+</body>
+
+</html>
