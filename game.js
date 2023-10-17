@@ -1,6 +1,5 @@
 var realAnswer, question, num1, operator, num2, answers, problem
 var settings;
-const popover = document.getElementById('popover-container');
 
 /* Get the element you want displayed in fullscreen mode (a video in this example): */
 //var elem = document.getElementById("myvideo");
@@ -1156,6 +1155,7 @@ window.addEventListener('resize', setContainerFontSize);
 }
 
 function toggleSettingsPopover() {
+  popover = document.getElementById('popover-container');
   popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'inline-flex' : 'none';
   if(popover.style.display !== 'none'){
     Operator.allOperators()[0].remove()
