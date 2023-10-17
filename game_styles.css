@@ -3,7 +3,7 @@
   --white: #ffffff;
   --main-color:yellow;
   --font-size-multiplier: 3;
-  --default-font-size: calc(4vw * var(--font-size-multiplier));
+  --default-font-size: calc(4ch * var(--font-size-multiplier));
   --number-of-answers:4;
   --max-size:95%; 
 }
