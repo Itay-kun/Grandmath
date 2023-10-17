@@ -10,7 +10,6 @@
 
 html,body {
   padding-top: 1vh;
-  background-color: black;
   color: var(--main-color);
   font-size: var(--default-font-size); /* Adjust the value to increase or decrease the font size */
   
@@ -22,18 +21,20 @@ html,body {
 }
 
 #popover-container {
+  touch-action: pan-y;
   z-index: 9999;
   position: absolute;
-  background-color: #290037;
+  background-color: #b1a8b4;
   opacity: 80%;
   box-shadow: #1e90ff;
+  font: 1.5em sans-serif;
 }
 
 #question-container{
   display: none;
   margin: 1px auto;
   justify-items: center;
-  width: 70%;
+  width: 80%;
 }
 
 .card {

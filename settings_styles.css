@@ -3,12 +3,12 @@
   --blue: #1e90ff;
   --white: #ffffff;
   --main-color:yellow;
+  --background-color:gray;
   --selection-color:#2260ff;
   --max-size: 90;
 }
 
 html,body {
-  background-color: black;
   color: var(--main-color);
   font-size: var(--default-font-size);
   
