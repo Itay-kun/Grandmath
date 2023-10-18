@@ -1157,7 +1157,7 @@ window.addEventListener('resize', setContainerFontSize);
 function toggleSettingsPopover() {
   popover = document.getElementById('popover-container');
   // openFullscreen(popover)
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'grid' : 'none';
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
   if(popover.style.display !== 'none'){
     Operator.allOperators()[0].remove()
     Operator.allOperators()[0].remove()
@@ -1176,12 +1176,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  if(!Operator.allOperators()) {
-    toggleSettingsPopover()
-  }
+  if(!Operator.allOperators()) {toggleSettingsPopover()}
 
 });
-titleElement.addEventListener('dblclick', toggleSettingsPopover())
+try{titleElement.addEventListener('dblclick', toggleSettingsPopover())} catch {console.trace("Operators class not set yet")}
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game

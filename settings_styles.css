@@ -11,8 +11,7 @@ html,body {
   color: var(--main-color);
   font-size: var(--default-font-size);
   
-  display: grid;
-  columns: 2;
+  display: flex;
   align-items: center;
   
   touch-action:none;
@@ -24,6 +23,8 @@ html,body {
 
 #numbers_range{
     display: flex;
+	flex-wrap: nowrap;
+	flex-grow: var(--max-size);
     gap: calc(var(--default-font-size)*2);
     flex-direction: row;
     align-content: stretch;
@@ -118,8 +119,8 @@ input[type="checkbox" i]:checked {
 }
 
 .settings-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	display: flex;
+	/* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
 	gap: 20px;
 	overflow-y: auto;  /* This will add a scroll if the content overflows the container height */
 	height: calc(100vh - (2*--default-font-size));  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
@@ -146,19 +147,21 @@ input[type="checkbox" i]:checked {
 body {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: nowrap;
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	align-items: center;
 	justify-content: center;
 }
 
 .operators {
 	display: flex;
-	flex-wrap: row;
+		flex-wrap: row;
+		flex-wrap: nowrap;
 	justify-content: center;
-	margin-left: auto;
-	margin-right: auto;
+		margin-left: auto;
+		margin-right: auto;
 	/* max-width: 300px; */
 	user-select: none;
 	& > * {
