@@ -22,6 +22,15 @@ html,body {
 	height: var(--max-size);
 }
 
+#numbers_range{
+    display: flex;
+    gap: calc(var(--default-font-size)*2);
+    flex-direction: row;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
 button{
 	max-height: 2ch;
 	font-size: large;
@@ -36,7 +45,7 @@ button{
   color: #fff;
   /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   height: 100%;
-  width: 100%;
+  width: 90%;
   border-radius: 4px;
   transition: all 300ms;
   /*overflow: hidden;*/
@@ -69,7 +78,7 @@ input[type="checkbox" i]:checked {
 .slider {
   appearance: none;
   width: 100%;
-  height: 25px;
+  height: 25vh;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -135,17 +144,18 @@ input[type="checkbox" i]:checked {
 }
 
 body {
+	display: flex;
+	flex-direction: row;
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	min-height: 100vh;
-	/* display: flex; */
 	align-items: center;
 	justify-content: center;
 }
 
 .operators {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: row;
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
