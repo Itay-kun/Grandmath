@@ -53,6 +53,7 @@ class Operator extends HTMLElement {
     return (this)
   }
 
+  // rename to all (instead of allOperators)?
 static allOperators(){
   let operators = document.getElementsByClassName('operator')
   return operators;
