@@ -4,14 +4,16 @@
   --background-color:black;
   --selection-color:#2260ff;
   --max-size: 100%;
+  font-size: medium;
   z-index: 100;
 }
 
 html,body {
   color: var(--main-color);
-  font-size: var(--default-font-size);
   
   display: flex;
+  	flex-direction: column;
+  	flex-wrap: nowrap;
   align-items: center;
   
   touch-action:none;
@@ -21,9 +23,22 @@ html,body {
 	height: var(--max-size);
 }
 
+body {
+	/* display: flex; */
+	/* flex-direction: row; */
+	font-family: "Inter", sans-serif;
+	line-height: 1.5;
+	/* min-height: 100vh; */
+	/* align-items: center; */
+	justify-content: center;
+	font-size: var(--default-font-size);
+}
+
 #numbers_range{
     display: flex;
+	flex-direction: column;
 	flex-wrap: nowrap;
+	max-height: 3ch;
 	flex-grow: var(--max-size);
     gap: calc(var(--default-font-size)*2);
     flex-direction: row;
@@ -45,7 +60,7 @@ button{
   background: var(--background-color);
   color: #fff;
   /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
-  height: 100%;
+  max-height: 100%;
   width: 90%;
   border-radius: 4px;
   transition: all 300ms;
@@ -79,7 +94,7 @@ input[type="checkbox" i]:checked {
 .slider {
   appearance: none;
   width: 100%;
-  height: 3ch;
+  max-height: 3ch;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
@@ -142,17 +157,6 @@ input[type="checkbox" i]:checked {
 *:after,
 *:before {
 	box-sizing: border-box;
-}
-
-body {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	font-family: "Inter", sans-serif;
-	line-height: 1.5;
-	/* min-height: 100vh; */
-	align-items: center;
-	justify-content: center;
 }
 
 .operators {
