@@ -1159,9 +1159,6 @@ function toggleSettingsPopover() {
   // openFullscreen(popover)
   popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
   if(popover.style.display !== 'none'){
-    Operator.allOperators()[0].remove()
-    Operator.allOperators()[0].remove()
-    Operator.allOperators()[0].remove()
     addOperatorsIcons();}
     loadSettings();
 }
