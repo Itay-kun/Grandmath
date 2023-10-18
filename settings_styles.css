@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
 :root {
   --background-color:black;
   --selection-color:#2260ff;
@@ -125,7 +127,6 @@ input[type="checkbox" i]:checked {
 }
 
 /*Operators CSS*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
 *,
 *:after,

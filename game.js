@@ -1163,6 +1163,7 @@ function toggleSettingsPopover() {
     Operator.allOperators()[0].remove()
     Operator.allOperators()[0].remove()
     addOperatorsIcons();}
+    loadSettings();
 }
 /************************************************** */
 document.addEventListener('DOMContentLoaded', function() {  
@@ -1170,13 +1171,14 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.text())
   .then(data => {
     popover.innerHTML = data;
-    loadSettings();
   })
   .catch(error => {
     console.error('Error:', error);
   });
 
-  if(Operator.allOperators().length == 0) {toggleSettingsPopover()}
+  if(!Operator.allOperators()) {
+    toggleSettingsPopover()
+  }
 
 });
 titleElement.addEventListener('dblclick', toggleSettingsPopover())
