@@ -410,10 +410,10 @@ class Answer extends HTMLElement {
   //get position() {    return this._positions;  }
 
  set text(new_value) {
-  console.trace("set new answer value:",new_value,Array.from(selectAnswerByText(new_value)).length == 0)
+  // console.trace("set new answer value:",new_value,Array.from(selectAnswerByText(new_value)).length == 0)
 
   if(Array.from(selectAnswerByText(new_value)).length == 0){
-    console.log("new answer:",this)
+    // console.log("new answer:",this)
     this.textContent = new_value;
     this.value = new_value;
     this.ariaValueNow = new_value;
@@ -497,7 +497,7 @@ addToParent(parentElement = getElementById("problem-container")) {
 checkAnswer(){
   try {
       problem = document.getElementById('problem')
-      problem.recalcAnswer()//answer = eval(problem.textContent)
+      problem.recalcAnswer()
       realAnswer = problem.answer
     } catch {undefined}
   return this.textContent == realAnswer
@@ -1176,11 +1176,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  if(!Operator.allOperators()) {toggleSettingsPopover()}
+  if(Operator.allOperators().length == 0) {toggleSettingsPopover()}
 
-  titleElement.addEventListener('dblclick', toggleSettingsPopover())
-  popover.addEventListener('dblclick', toggleSettingsPopover())
 });
+titleElement.addEventListener('dblclick', toggleSettingsPopover())
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game

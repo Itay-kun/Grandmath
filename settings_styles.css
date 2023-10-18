@@ -108,21 +108,22 @@ input[type="checkbox" i]:checked {
 
 .settings-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* creates columns that are at least 300px wide, if screen width permits */
-	gap: 20px; /* sets the gap between grid items */
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+	overflow-y: auto;  /* This will add a scroll if the content overflows the container height */
+	height: calc(100vh - 60px);  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
   }
   
-  fieldset {
-	border: 1px solid #ccc;
-	padding: 15px;
-  }
-  
-  /* Optional: You can set media queries if you want to adjust the grid for different screen sizes */
   @media (max-width: 600px) {
 	.settings-grid {
 	  grid-template-columns: 1fr;
 	}
   }
+
+#saveSettings, #loadSettings {
+	margin: 10px;
+}
+
 /*Operators CSS*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
@@ -136,7 +137,7 @@ body {
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	min-height: 100vh;
-	display: flex;
+	/* display: flex; */
 	align-items: center;
 	justify-content: center;
 }
@@ -220,7 +221,7 @@ body {
 		width: 1.25rem;
 		height: 1.25rem;
 		border: 2px solid #b5bfd9;
-    color: var(--main-color);
+    	color: var(--main-color);
 		border-radius: 50%;
 		top: 0.25rem;
 		left: 0.25rem;
@@ -234,7 +235,7 @@ body {
 	};
 
 	.checkbox-tile:hover {
-		border-color: #2260ff;
+		border-color: var(--selection-color);
 
 		svg {
 			fill: var(--selection-color);
@@ -243,7 +244,7 @@ body {
 			}
 	}
     .checkbox-icon::before{
-		fill:#2260ff
+		fill:var(--selection-color);
 	  }
 
 svg::selection{
