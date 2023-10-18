@@ -145,13 +145,13 @@ function saveSettings(close=false) {
 }
 
 function addVoicesOptions(voices){
-  console.dir(voices)
+  // console.dir(voices)
   select = document.getElementById("voice")
   // console.dir(select)
   voices = speechSynthesis.getVoices().filter(function (voice) { return voice.lang == "en-US"});
   // console.dir(voices)
   for (var i = 0; i<voices.length; i++){
-    console.log(voices[i]);
+    // console.log(voices[i]);
     var opt = document.createElement('option');
     opt.value = voices[i];
     opt.innerText = voices[i]['name'];

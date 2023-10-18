@@ -111,10 +111,10 @@ input[type="checkbox" i]:checked {
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 20px;
 	overflow-y: auto;  /* This will add a scroll if the content overflows the container height */
-	height: calc(100vh - 60px);  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
+	height: calc(100vh - (2*--default-font-size));  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
   }
   
-  @media (max-width: 600px) {
+  @media (max-width: 85%) {
 	.settings-grid {
 	  grid-template-columns: 1fr;
 	}
@@ -148,7 +148,7 @@ body {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 300px;
+	/* max-width: 300px; */
 	user-select: none;
 	& > * {
 		margin: .5rem 0.5rem;
@@ -175,19 +175,19 @@ body {
 	width: 1px;
     .checkbox-icon::before{
     svg{
-      fill:#2260ff
+      fill:var(--selection-color);
     };
   }
 
 	&:checked + .checkbox-tile {
-    border-color: #2260ff;
+    border-color: var(--selection-color);
 		&:before {
-			border-color: #2260ff;
-			background-color: #2260ff;
+			border-color: var(--selection-color);
+			background-color: var(--selection-color);
 		}
     
     .checkbox-label {
-			/*color: #2260ff;*/
+			/*color: var(--selection-color);*/
 			box-shadow: 0 5px 10px rgba(#000, 0.1), 0 0 0 4px #b5c9fc;
 			background-color: light-blue;
 		}
@@ -212,7 +212,6 @@ body {
 	cursor: pointer;
 	position: relative;
 };
-
 
 	.checkbox-tile:before {
 		content: "";
