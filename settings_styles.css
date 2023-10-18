@@ -1,11 +1,8 @@
 :root {
-	z-index: 1;
-  --blue: #1e90ff;
-  --white: #ffffff;
-  --main-color:yellow;
-  /* --background-color:black; */
+  --background-color:black;
   --selection-color:#2260ff;
   --max-size: 100%;
+  z-index: 100;
 }
 
 html,body {
@@ -23,19 +20,24 @@ html,body {
 	height: var(--max-size);
 }
 
+button{
+	max-height: 2ch;
+	font-size: large;
+}
+
 .card {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #353535;
+  background: var(--background-color);
   color: #fff;
   /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   height: 100%;
   width: 100%;
   border-radius: 4px;
   transition: all 300ms;
-  overflow: hidden;
+  /*overflow: hidden;*/
 
   background-size: cover;
   background-position: center;
@@ -104,6 +106,23 @@ input[type="checkbox" i]:checked {
   left: 50%;
 }
 
+.settings-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* creates columns that are at least 300px wide, if screen width permits */
+	gap: 20px; /* sets the gap between grid items */
+  }
+  
+  fieldset {
+	border: 1px solid #ccc;
+	padding: 15px;
+  }
+  
+  /* Optional: You can set media queries if you want to adjust the grid for different screen sizes */
+  @media (max-width: 600px) {
+	.settings-grid {
+	  grid-template-columns: 1fr;
+	}
+  }
 /*Operators CSS*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 

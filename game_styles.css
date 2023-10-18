@@ -7,7 +7,6 @@
   --font-size-multiplier: 3;
   --default-font-size: calc(1ch * var(--font-size-multiplier));
   --number-of-answers:4;
-  
   --max-size:95%; 
 }
 
@@ -30,9 +29,8 @@ html,body {
   position: absolute;
   background-color: #b1a8b4;
   
-  opacity: 80%;
+  /* opacity: 80%; */
   /* box-shadow: #1e90ff; */
-  font: 1.5em sans-serif;
 }
 
 #question-container{

@@ -1156,8 +1156,10 @@ window.addEventListener('resize', setContainerFontSize);
 
 function toggleSettingsPopover() {
   popover = document.getElementById('popover-container');
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'inline-flex' : 'none';
+  // openFullscreen(popover)
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'grid' : 'none';
   if(popover.style.display !== 'none'){
+    Operator.allOperators()[0].remove()
     Operator.allOperators()[0].remove()
     Operator.allOperators()[0].remove()
     addOperatorsIcons();}
@@ -1174,7 +1176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  toggleSettingsPopover()
+  if(!Operator.allOperators()) {toggleSettingsPopover()}
 
   titleElement.addEventListener('dblclick', toggleSettingsPopover())
   popover.addEventListener('dblclick', toggleSettingsPopover())
