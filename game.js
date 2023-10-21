@@ -31,6 +31,9 @@ bodyStyles = document.body.style;
 
 function arrayRange(start, stop, step=1){
   //step = Math.random()
+  //When is it NaN?
+  if(start.toString == "NaN") {console.warn("Start is NaN",value)}
+  if(stop.toString == "NaN") {console.warn("Stop is NaN",value)}
   console.info("arrayRange =",arguments)
   let arr =  Array.from(
     { length: (stop - start) / step + 1 },
@@ -157,14 +160,17 @@ read(language="en-US"){
     return this._num1;
   }
 
+  // ToDo: Merge numbers creation for more complex questions
   set num1(value) {
     value = parseInt(value)
     /*if (!(this.highestNumber>= value >= this.lowestNumber)) {
       throw new Error(value,'Number must be between '+this.lowestNumber+' and '+ this.highestNumber);
     }*/
+    if(value.toString!="NaN"){
     this._num1 = value;
     this.updateQuestion()
     updateOrCreateElement('num1', this.num1); console.trace("updating num1")
+  }
   }
 
   get num2() {
@@ -176,9 +182,11 @@ read(language="en-US"){
    /*if (value < this.lowestNumber || value > this.highestNumber) {
       throw new Error('Number must be between {} and {}'.format(this.lowestNumber, this.highestNumber));
     }*/
+    if(value.toString!="NaN"){
     this._num2 = value;
     this.updateQuestion()
     updateOrCreateElement('num2', this.num2);  console.trace("updating num2")
+    }
   }
 
   get operator() {
