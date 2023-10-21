@@ -140,7 +140,7 @@ function saveSettings() {
   // Use localStorage.setItem to store the settings object as a string
   window.alert("settings saved")
   localStorage.setItem("grandmath_settings", JSON.stringify(settings));
-  if(close){this.close()} else this.document.forms[0].submit()
+  this.document.forms[0].submit()
 }
 
 function addVoicesOptions(voices){
