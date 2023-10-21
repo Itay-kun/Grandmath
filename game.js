@@ -585,7 +585,7 @@ window.oncontextmenu = (function(e) {
 });
 
 
-function getURLParameters(url) {
+function getURLParameters(url=document.location) {
   const params = {};
   const regex = /[?&]([^=#]+)=([^&#]*)/g;
   let match;
@@ -1173,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.error('Error:', error);
   });
 
-  if(!Operator.allOperators()) {toggleSettingsPopover()}
+  if(!getURLParameters()) {toggleSettingsPopover()}
 
 });
 try{titleElement.addEventListener('dblclick', toggleSettingsPopover())} catch {console.trace("Operators class not set yet")}
