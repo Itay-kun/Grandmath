@@ -641,8 +641,8 @@ function say(text, language="en-US") {
   synUtterance.text = text;
   synUtterance.voice = VOICES[7];
   synUtterance.volume = 100;
-  synUtterance.rate = 1; // Make it adjustable from settings menu
-  synUtterance.pitch = 1; // Make it adjustable from settings menu
+  synUtterance.rate = 1;
+  synUtterance.pitch = 1;
 
   window.speechSynthesis.speak(synUtterance);
 
@@ -1172,7 +1172,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .catch(error => {
     console.error('Error:', error);
   });
-  let parameters_not_set = JSON.stringify(getURLParameters())=="{}"
+  let parameters_not_set = !JSON.stringify(getURLParameters())=="{}"
   if(parameters_not_set) {toggleSettingsPopover()}
 
 });

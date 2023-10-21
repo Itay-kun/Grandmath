@@ -117,7 +117,7 @@ this.name = "Grandmath - Settings"
 function formToJson(formElement = document.forms[0]) {
   const formData = new FormData(formElement);
   settings = {};
-
+  settings['operator'] = Operator.selectedOperators()
   formData.forEach((value, key) => {
     if (key in settings) {
       if (!Array.isArray(settings[key])) {
@@ -126,16 +126,15 @@ function formToJson(formElement = document.forms[0]) {
       settings[key].push(value);
     } else {
       settings[key] = value;
-      console.debug(settings[key], typeof(settings[key]))
+      //console.debug(settings[key], typeof(settings[key]))
     }
   });
-  settings['operator'] = Operator.selectedOperators()
   return settings;
 }
 
-function saveSettings(close=false) {
+function saveSettings() {
   // console.debug(arguments)
-		settings = formToJson()
+	settings = formToJson()
   console.log("Settings: ",settings)
 	
   // Use localStorage.setItem to store the settings object as a string
@@ -231,15 +230,13 @@ function addOperatorsIcons(operators_fildset = document.getElementById("operator
     substruction.addEventListener('click', substruction.toggle.bind(substruction));
     substruction.title = '-'
 
-
-muliplication = new Operator("Muliplication",'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>                <rect width="256" height="256" fill="none"></rect>                <polygon points="72 40 184 40 240 104 128 224 16 104 72 40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polygon>                <polygon points="177.091 104 128 224 78.909 104 128 40 177.091 104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polygon>                <line x1="16" y1="104" x2="240" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></line>              </svg>');
-muliplication.attachTo(operators_fildset)
-muliplication.addEventListener('click', muliplication.toggle.bind(muliplication));
-muliplication.title = '*'
-    /*
-division = new Operator("Division",'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM128,80a16,16,0,1,0-16-16A16,16,0,0,0,128,80Zm0,96a16,16,0,1,0,16,16A16,16,0,0,0,128,176Z"></path></svg>                <rect x="36" y="36" width="184" height="184" rx="48" stroke-width="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></rect>                <circle cx="180" cy="75.99998" r="10"></circle>              </svg>');
-division.attachTo(operators_fildset)
-division.addEventListener('click', division.toggle.bind(division));
-division.title = '/'
-*/
+    muliplication = new Operator("Muliplication",'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg>                <rect width="256" height="256" fill="none"></rect>                <polygon points="72 40 184 40 240 104 128 224 16 104 72 40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polygon>                <polygon points="177.091 104 128 224 78.909 104 128 40 177.091 104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></polygon>                <line x1="16" y1="104" x2="240" y2="104" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"></line>              </svg>');
+    muliplication.attachTo(operators_fildset)
+    muliplication.addEventListener('click', muliplication.toggle.bind(muliplication));
+    muliplication.title = '*'
+    
+    division = new Operator("Division",'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM128,80a16,16,0,1,0-16-16A16,16,0,0,0,128,80Zm0,96a16,16,0,1,0,16,16A16,16,0,0,0,128,176Z"></path></svg>                <rect x="36" y="36" width="184" height="184" rx="48" stroke-width="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></rect>                <circle cx="180" cy="75.99998" r="10"></circle>              </svg>');
+    division.attachTo(operators_fildset)
+    division.addEventListener('click', division.toggle.bind(division));
+    division.title = '/'
 }
