@@ -1179,8 +1179,6 @@ document.addEventListener('DOMContentLoaded', function() {
   .catch(error => {
     console.error('Error:', error);
   });
-  let parameters_not_set = settingsString=="{}"
-  if(parameters_not_set) {toggleSettingsPopover()}
 
 });
 try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {console.trace("Operators class not set yet")}

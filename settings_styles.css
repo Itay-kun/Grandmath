@@ -40,8 +40,7 @@ body {
 	flex-wrap: wrap;
 	/* max-height: 3ch; */
 	/* flex-grow: var(--max-size); */
-    gap: calc(var(--default-font-size)*2);
-    flex-direction: row;
+    gap: calc(var(--default-font-size));
     align-content: flex-start;
     align-items: center;
     justify-content: space-evenly;
@@ -59,7 +58,7 @@ button{
   align-items: center;
   background: var(--background-color);
   color: #fff;
-  /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
   max-height: 100%;
   width: 90%;
   border-radius: 4px;
@@ -111,14 +110,14 @@ input[type="checkbox" i]:checked {
   margin: 0 auto 3rem;
 }
 .range {
-  width: 100%;
+  width: 95%;
 }
 .bubble {
   background: red;
   color: white;
   padding: 4px 12px;
   position: relative;
-  /*margin-left: -6%;*/
+  margin-left: -6%;
   border-radius: 4px;
   left: 50%;
   transform: translateX(-50%);
@@ -135,16 +134,11 @@ input[type="checkbox" i]:checked {
 
 .settings-grid {
 	display: flex;
-	/* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+	flex-direction: row;
+	flex-wrap: wrap;
 	gap: 20px;
 	overflow-y: auto;  /* This will add a scroll if the content overflows the container height */
-	height: calc(100vh - (2*--default-font-size));  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
-  }
-  
-  @media (max-width: 85%) {
-	.settings-grid {
-	  grid-template-columns: 1fr;
-	}
+	height: calc(90vh - (2*--default-font-size));  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
   }
 
 #saveSettings, #loadSettings {
