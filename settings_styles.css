@@ -3,18 +3,18 @@
 :root::after {
   --background-color:black;
   --selection-color:#2260ff;
-  --max-size: 50%;
   font-size: medium;
-  z-index: 100;
+  --max-size: 90%;
+  /* z-index: 100; */
 }
 
-html,body {
+html,body::after{
   color: var(--main-color);
-  
-  display: flex;
+  display: flow;
+  /* display: flex;
   	flex-direction: column;
   	flex-wrap: nowrap;
-  align-items: center;
+  align-items: center; */
   
   touch-action:none;
   user-select: none;
@@ -33,8 +33,6 @@ html,body {
 body {
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
-	/* min-height: 100vh; */
-	/* align-items: center; */
 	justify-content: center;
 	font-size: var(--default-font-size);
 }

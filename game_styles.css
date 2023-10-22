@@ -7,7 +7,7 @@
   --font-size-multiplier: 3;
   --default-font-size: calc(1ch * var(--font-size-multiplier));
   --number-of-answers:4;
-  --max-size:95%; 
+  /* --max-size:95%;  */
 }
 
 html,body {
@@ -19,8 +19,8 @@ html,body {
   align-items: center;
   flex-direction: column;
   
-  touch-action: none;
-  user-select: none;
+  /* touch-action: none;
+  user-select: none; */
   
   /*support Safari 3+*/
   -webkit-user-select: none;
@@ -35,9 +35,8 @@ html,body {
   display: inline-flex;
   /* position: absolute; */
   background-color: #b1a8b4;
-  
-  /* opacity: 80%; */
-  /* box-shadow: #1e90ff; */
+  opacity: 80%;
+  box-shadow: #1e90ff;
 }
 
 #question-container{
