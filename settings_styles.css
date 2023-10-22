@@ -3,7 +3,6 @@
 :root::after {
   --background-color:black;
   --selection-color:#2260ff;
-  font-size: medium;
   --max-size: 90%;
   /* z-index: 100; */
 }
@@ -11,13 +10,11 @@
 html,body::after{
   color: var(--main-color);
   display: flow;
+  font-size: medium;
   /* display: flex;
   	flex-direction: column;
   	flex-wrap: nowrap;
   align-items: center; */
-  
-  touch-action:none;
-  user-select: none;
   
   /*support Safari 3+*/
   -webkit-user-select: none;
@@ -26,11 +23,14 @@ html,body::after{
   -ms-user-select: none;
   -ms-touch-action: none;
   
+  touch-action:none;
+  user-select: none;
+
   width: var(--max-size);
 	height: var(--max-size);
 }
 
-body {
+body::after {
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	justify-content: center;
@@ -49,9 +49,11 @@ body {
     justify-content: space-evenly;
 }
 
-button{
-	max-height: 2ch;
-	font-size: large;
+.buttons{
+	display: contents;
+	/* max-height: 2ch; */
+	font-size: medium;
+	gap: 3px;
 }
 
 .card {
@@ -59,7 +61,7 @@ button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--background-color);
+  
   color: #fff;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
   max-height: 100%;
@@ -68,6 +70,7 @@ button{
   transition: all 300ms;
   /*overflow: hidden;*/
 
+  background: var(--background-color);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -80,7 +83,7 @@ button{
 
 #title {
  text-align: center;
- font-size: normal
+ scale: var(--font-size-multipeler)
 }
 
 input[type="checkbox" i]:checked {
