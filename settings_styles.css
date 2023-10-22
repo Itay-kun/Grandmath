@@ -7,26 +7,27 @@
   /* z-index: 100; */
 }
 
-html,body::after{
-  color: var(--main-color);
-  display: flow;
-  font-size: medium;
-  /* display: flex;
+html,
+body::after {
+	color: var(--main-color);
+	display: flow;
+	font-size: medium;
+	/* display: flex;
   	flex-direction: column;
   	flex-wrap: nowrap;
   align-items: center; */
-  
-  /*support Safari 3+*/
-  -webkit-user-select: none;
 
-  /*support Internet Explorer 10+*/
-  -ms-user-select: none;
-  -ms-touch-action: none;
-  
-  touch-action:none;
-  user-select: none;
+	/*support Safari 3+*/
+	-webkit-user-select: none;
 
-  width: var(--max-size);
+	/*support Internet Explorer 10+*/
+	-ms-user-select: none;
+	-ms-touch-action: none;
+
+	touch-action: none;
+	user-select: none;
+
+	width: var(--max-size);
 	height: var(--max-size);
 }
 
@@ -39,14 +40,14 @@ body::after {
 
 #numbers_range,#synUtterance,.operators{
     display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 	flex-wrap: wrap;
 	/* max-height: 3ch; */
 	/* flex-grow: var(--max-size); */
     gap: calc(var(--default-font-size));
     align-content: flex-start;
     align-items: center;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
 }
 
 .buttons{
@@ -82,7 +83,7 @@ body::after {
 
 #title {
  text-align: center;
- scale: var(--font-size-multipeler)
+ scale: calc(var(--font-size-multipeler)*2)
 }
 
 input[type="checkbox" i]:checked {
@@ -100,8 +101,9 @@ input[type="checkbox" i]:checked {
   width: 100%;
   max-height: 3ch;
   background: #d3d3d3;
-  outline: none;
+  outline-color: #0b0b0b00;
   opacity: 0.7;
+  
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
@@ -143,7 +145,7 @@ input[type="checkbox" i]:checked {
 	flex-wrap: wrap;
 	gap: 20px;
 	overflow-y: auto;  /* This will add a scroll if the content overflows the container height */
-	height: calc(90vh - (2*--default-font-size));  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
+	/*height: calc(90vh - (2*--default-font-size));*/  /* Adjust based on the space you want to leave for buttons and other elements outside the grid */
   }
 
 #saveSettings, #loadSettings {

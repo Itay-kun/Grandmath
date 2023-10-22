@@ -7,6 +7,7 @@
   --font-size-multiplier: 3;
   --default-font-size: calc(1ch * var(--font-size-multiplier));
   --number-of-answers:4;
+  --max-size: 90%;
 }
 
 html,body {
@@ -102,19 +103,21 @@ flex-direction: column;
 }
 
 .answer {
-  min-height:2ch;
-  min-width:2ch;
-  
+  min-height:3ch;
+  min-width:3ch;
   
   /*aspect-ratio: 1 / 1;*/
 
   position: relative;
   flex-grow: 1;
+  flex-shrink: 1;
   
   cursor: move;
   text-align: center;
   
   color: var(--main-color);
+  background-color: #000;
+  opacity: 84%;
   font-size:var(--default-font-size);
 }
 

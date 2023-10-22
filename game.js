@@ -60,7 +60,7 @@ class Problem extends HTMLElement {
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
     //ToDo: make that a static function of "Answer" class
-    document.getElementById("questions_counter").textContent = ["| Question", Problem.counter].join(" ")
+    document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
     super();
     console.group("Problem ",Problem.counter)
@@ -663,9 +663,11 @@ titleElement.textContent = 'Grandmath';
 titleElement.id = 'title';
 document.head.appendChild(titleElement);
 
-var questionsCounter = document.createElement('h3');
-questionsCounter.textContent = Problem.counter;
-questionsCounter.id = 'questions_counter';
+var questionsCounter = document.createElement('div');
+  questionsCounter.textContent = Problem.counter;
+  questionsCounter.textContent = Problem.counter;
+  questionsCounter.id = 'questions_counter';
+  questionsCounter.class = 'title';
 titleElement.appendChild(questionsCounter);
 
 
