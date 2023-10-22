@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
 
-:root {
+:root::after {
   --background-color:black;
   --selection-color:#2260ff;
-  --max-size: 100%;
+  --max-size: 50%;
   font-size: medium;
   z-index: 100;
 }
@@ -19,13 +19,18 @@ html,body {
   touch-action:none;
   user-select: none;
   
+  /*support Safari 3+*/
+  -webkit-user-select: none;
+
+  /*support Internet Explorer 10+*/
+  -ms-user-select: none;
+  -ms-touch-action: none;
+  
   width: var(--max-size);
 	height: var(--max-size);
 }
 
 body {
-	/* display: flex; */
-	/* flex-direction: row; */
 	font-family: "Inter", sans-serif;
 	line-height: 1.5;
 	/* min-height: 100vh; */

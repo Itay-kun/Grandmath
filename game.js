@@ -1164,27 +1164,23 @@ window.addEventListener('resize', setContainerFontSize);
 
 function toggleSettingsPopover() {
   popover = document.getElementById('popover-container');
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
-  if(popover.style.display !== 'none'){
-    addOperatorsIcons();}
-    loadSettings();
-}
-/************************************************** */
-document.addEventListener('DOMContentLoaded', function() {  
   fetch('settings.html')
   .then(response => response.text())
   .then(data => {
     popover.innerHTML = data;
     console.log(popover)
+	document.body.appendChild(popover)
   })
   .catch(error => {
     console.error('Error:', error);
   });
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
+  if(popover.style.display !== 'none'){    addOperatorsIcons();}
+}
 
-});
 try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {console.trace("Operators class not set yet")}
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game
 const game = setupGame();
-window.onchange = e=> {console.log(e)}
+window.onchange = e=> {console.log(e.target.value)}
