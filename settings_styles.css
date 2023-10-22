@@ -50,8 +50,7 @@ body::after {
 }
 
 .buttons{
-	display: contents;
-	/* max-height: 2ch; */
+	border-color: #0b0b0b00;
 	font-size: medium;
 	gap: 3px;
 }
