@@ -11,12 +11,11 @@
   <h1>settings</h1>
   <br>
   <fieldset id="buttons" class="buttons">
-    <button id="saveSettings" type="button" class="button" onclick="saveSettings(false)">Save Setings</button>
-    <td></td>
-    <button id="loadSettings" type="button" class="button" onclick="loadSettings()">Load Setings</button>
-    <br>
+    <tr>
+    <td><button id="saveSettings" type="button" class="button" onclick="saveSettings(false)">Save Setings</button></td>
+    <td><button id="loadSettings" type="button" class="button" onclick="loadSettings()">Load Setings</button></td>
+  </tr>
   </fieldset>
-  <script src="settings.js" defer></script>
   <form id="settings_form" class="settings-grid">
 
     <fieldset id="operator" class="operators">
@@ -61,7 +60,7 @@
     </fieldset>
 
   </form>
-
+  <script src="settings.js" defer></script>
 </body>
 
 </html>
