@@ -214,9 +214,9 @@ function setBubble(range, bubble) {
   bubble.style.left = newVal+'%';
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  addOperatorsIcons();
+document.addEventListener("focusin", function() {
   loadSettings();
+  addOperatorsIcons();
   wait(1500).then(addVoicesOptions(voices));
 });
 

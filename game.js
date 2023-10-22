@@ -706,7 +706,7 @@ function touchStart(event) {
 function touchMove(event) {
   console.groupCollapsed("touchMove") 
   console.log(event);
-  //event.preventDefault();
+  // event.preventDefault();
   
   const rect = event.target.getBoundingClientRect();
 
@@ -849,7 +849,8 @@ function dragMove(event) {
   console.log("Movment: ",[event.movementX,event.movementY])
   if(event.pressure == 0 )  {return}
   console.group(event.target.id+" move")
-	// Add a class to the dragged element to indicate the active state
+	
+  // Add a class to the dragged element to indicate the active state
   const draggedElement = event.target;
   console.log(event)
   console.dir(event.target)
@@ -1170,8 +1171,8 @@ function toggleSettingsPopover() {
   .then(response => response.text())
   .then(data => {
     popover.innerHTML = data;
-    console.log(popover)
-	document.body.appendChild(popover)
+    document.body.appendChild(popover);
+    addOperatorsIcons();
   })
   .catch(error => {
     console.error('Error:', error);
@@ -1184,5 +1185,5 @@ try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {con
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game
-const game = setupGame();
 window.onchange = e=> {console.log(e.target.value)}
+const game = setupGame();
