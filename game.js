@@ -1095,7 +1095,7 @@ settings = loadGameSettings();
   // window.alert(JSON.stringify(settings))
 	
 	//titleElement.addEventListener("dblclick", openSettingsWindow);
-  titleElement.addEventListener("click", openFullscreen(self));
+  // titleElement.addEventListener("click", openFullscreen(self));
 	
 	//operators_menu = document.getElementById('operators-menu');
 	//operators_menu.visibility = 'collapse'
@@ -1164,7 +1164,6 @@ window.addEventListener('resize', setContainerFontSize);
 
 function toggleSettingsPopover() {
   popover = document.getElementById('popover-container');
-  // openFullscreen(popover)
   popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
   if(popover.style.display !== 'none'){
     addOperatorsIcons();}
@@ -1180,12 +1179,14 @@ document.addEventListener('DOMContentLoaded', function() {
   .catch(error => {
     console.error('Error:', error);
   });
-  let parameters_not_set = !JSON.stringify(getURLParameters())=="{}"
+  let parameters_not_set = settingsString=="{}"
   if(parameters_not_set) {toggleSettingsPopover()}
 
 });
-try{titleElement.addEventListener('dblclick', toggleSettingsPopover())} catch {console.trace("Operators class not set yet")}
+try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {console.trace("Operators class not set yet")}
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game
-setupGame();
+const game = setupGame();
+window.onbeforeprint = toggleSettingsPopover()
+window.onchange = e=> console.log(e)
