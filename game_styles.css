@@ -26,7 +26,7 @@ html,body {
 #popover-container {
   z-index: 9999;
   display: inline-flex;
-  position: absolute;
+  /* position: absolute; */
   background-color: #b1a8b4;
   
   /* opacity: 80%; */

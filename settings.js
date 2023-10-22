@@ -106,7 +106,6 @@ static selectedOperators(){
 
 
 voices = speechSynthesis.getVoices().filter(function (voice) { return voice.lang == "en-US"});
-document.addEventListener("focus",addVoicesOptions(voices))
 
 const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
@@ -144,7 +143,8 @@ function saveSettings() {
 }
 
 function addVoicesOptions(voices){
-  // console.dir(voices)
+  try {
+   // console.dir(voices)
   select = document.getElementById("voice")
   // console.dir(select)
   voices = speechSynthesis.getVoices().filter(function (voice) { return voice.lang == "en-US"});
@@ -156,7 +156,10 @@ function addVoicesOptions(voices){
     opt.innerText = voices[i]['name'];
     select.appendChild(opt);
 }
-  return(voices)
+  return(voices) 
+  } catch (error) {
+    
+  }
 }
 
 function loadSettings(settings = JSON.parse(localStorage.getItem("grandmath_settings"))) {

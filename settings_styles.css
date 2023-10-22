@@ -34,7 +34,7 @@ body {
 	font-size: var(--default-font-size);
 }
 
-#numbers_range,#synUtterance{
+#numbers_range,#synUtterance,.operators{
     display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;

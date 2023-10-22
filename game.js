@@ -1175,6 +1175,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .then(response => response.text())
   .then(data => {
     popover.innerHTML = data;
+    console.log(popover)
   })
   .catch(error => {
     console.error('Error:', error);
@@ -1186,5 +1187,4 @@ try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {con
 
 // Call the setupGame function to create the HTML elements and set up the game
 const game = setupGame();
-window.onbeforeprint = toggleSettingsPopover()
-window.onchange = e=> console.log(e)
+window.onchange = e=> {console.log(e)}
