@@ -1163,8 +1163,8 @@ settings = loadGameSettings();
 
 
 // Call the setContainerFontSize function initially and on window resize
-setContainerFontSize();
-window.addEventListener('resize', setContainerFontSize);
+// setContainerFontSize();
+// window.addEventListener('resize', setContainerFontSize);
 
   // Event listener for the "New Question" button
   //titleElement.addEventListener('click', resetGame);

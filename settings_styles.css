@@ -15,7 +15,7 @@ body::after {
 	/* display: flex;
   	flex-direction: column;
   	flex-wrap: nowrap;
-  align-items: center; */
+  	align-items: center; */
 
 	/*support Safari 3+*/
 	-webkit-user-select: none;

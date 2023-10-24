@@ -93,8 +93,8 @@ flex-direction: column;
 
 #answers_container {
   display: flex;
-  /* flex-basis: 200px; */
-  /* flex-grow: 0; */
+  flex-basis: 200px;
+  flex-grow: 0;
   flex-shrink: 0;
 
   align-content:stretch;
@@ -106,13 +106,13 @@ flex-direction: column;
 }
 
 .answer {
-  /* height:max-content;
-  width:max-content; */
+  height:max-content;
+  width:max-content;
   
   aspect-ratio: 1 / 1;
 
   position: relative;
-  /* flex-grow: 1; */
+  flex-grow: 1;
   flex-shrink: 1;
   
   cursor: move;
