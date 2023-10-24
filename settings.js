@@ -215,7 +215,7 @@ function setBubble(range, bubble) {
 }
 
 document.addEventListener("focusin", function() {
-  loadSettings();
+  //loadSettings();
   addOperatorsIcons();
   wait(1500).then(addVoicesOptions(voices));
 });

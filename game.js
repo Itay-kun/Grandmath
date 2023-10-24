@@ -47,7 +47,8 @@ const defaultSettings = {
   "lowest_value": 0,
   "highest_value": 15,
   "volume":100,
-  "textColor": 'Yellow'
+  "textColor": '#ffff00',
+  "font_size":22
 };
 
 settings = loadGameSettings();
@@ -1107,8 +1108,7 @@ function setupGame() {
 settings = loadGameSettings();
   // window.alert(JSON.stringify(settings))
 	
-	//titleElement.addEventListener("dblclick", openSettingsWindow);
-  // titleElement.addEventListener("click", openFullscreen(self));
+	// titleElement.addEventListener("click", openFullscreen(self));
 	
 	//operators_menu = document.getElementById('operators-menu');
 	//operators_menu.visibility = 'collapse'
