@@ -698,6 +698,10 @@ function touchStart(event) {
 
   // Store the initial touch position relative to the element's center
   const touch = event.touches[0];
+  
+  console.info(event.isPrimary)
+  //Cancel interaction if not the first touch
+  if(!event.isPrimary) return;
 
   //How do i check if it's the first touch?
   
@@ -1195,5 +1199,5 @@ try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {con
 /************************************************** */
 
 // Call the setupGame function to create the HTML elements and set up the game
-window.onchange = e=> {console.log(e.target.value)}
+window.onchange = e=> {"changed: ",console.log(e.target)}
 const game = setupGame();
