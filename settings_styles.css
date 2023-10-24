@@ -3,7 +3,7 @@
 :root::after {
   --background-color:black;
   --selection-color:#2260ff;
-  --max-size: 90%;
+  --max-size: 100%;
   /* z-index: 100; */
 }
 

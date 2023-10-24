@@ -461,11 +461,16 @@ get id(){
   
 read(language=this.lang){  say(this.textContent,language)}
 
-reset(){
-  this.removeEventListener('pointermove',dragMove);
+resetClasses(){
   this.classList.remove('incorrect')
   this.classList.remove('correct')
   this.classList.remove('active')
+}
+
+reset(){
+  this.removeEventListener('pointermove',dragMove);
+  
+  resetClasses()
   
   this.currentX = 0
   this.currentY = 0
@@ -476,7 +481,6 @@ reset(){
 get isCorrect() {
   return this.checkAnswer()
 }
-
 
 set currentX(x){
   this._cyrrentX = x
@@ -511,6 +515,7 @@ checkAnswer(){
   return this.textContent == realAnswer
 }
 
+//ToDo: move this to Question class
   static generateRandomAnswers(numAnswers = 4, lowestNumber = 1, highestNumber = 15, problem = document.getElementById("problem")) {
       if (numAnswers > (highestNumber - lowestNumber + 1)) {
         console.error("Too many answers requested");
@@ -520,7 +525,7 @@ checkAnswer(){
 
       var answers = [];
       for (let i = 0; i < numAnswers; i++) {
-        let text = /*arrayRange.shift*/(Math.floor(Math.random() * (highestNumber - lowestNumber + 1)));
+        let text = (Math.floor(Math.random() * (highestNumber - lowestNumber + 1)));
         while (answers.includes(text)) {
           text = Math.floor(Math.random() * (highestNumber - lowestNumber + 1) + lowestNumber);
         }
@@ -638,7 +643,7 @@ function say(text, language="en-US") {
 
   lastText = text;
 
-  VOICES = speechSynthesis.getVoices().filter(function (voice) { return voice.lang == language; });
+  const VOICES = speechSynthesis.getVoices().filter(function (voice) { return voice.lang == language; });
 
   if (speechSynthesis.speaking) {
     speechQueue.push(text);
@@ -658,7 +663,7 @@ function say(text, language="en-US") {
 }
 
 // Create the title element
-var titleElement = document.createElement('h1');
+var titleElement = document.createElement('div');
 titleElement.textContent = 'Grandmath';
 titleElement.id = 'title';
 document.head.appendChild(titleElement);
@@ -678,7 +683,7 @@ titleElement.appendChild(questionsCounter);
 function touchStart(event) {
   event.preventDefault();
   console.group("touchStart") 
-  console.group(event);
+  console.dir(event);
   event.target.classList.add('active');
 
   // Reset the target container if the current result is wrong
@@ -692,6 +697,8 @@ function touchStart(event) {
 
   // Store the initial touch position relative to the element's center
   const touch = event.touches[0];
+
+  //How do i check if it's the first touch?
   
   event.target.initialX = touch.clientX
   event.target.initialY = touch.clientY
@@ -751,11 +758,14 @@ function touchMove(event) {
     event.target.classList.add("out-of-window")
     console.groupEnd("out of window") 
     //return;
-  } else {event.target.classList.remove("out-of-window")}
-  
-  event.target.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-  event.target.style.position = `translate(${offsetX}px, ${offsetY}px)`;
-  console.groupEnd("touchMove") 
+  } else {
+    event.target.classList.remove("out-of-window")
+  // }
+    //Move to new position
+    event.target.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    event.target.style.position = `translate(${offsetX}px, ${offsetY}px)`;
+    console.groupEnd("touchMove") 
+  }
 }
 
 // Function to handle touchend event
@@ -782,7 +792,6 @@ function touchEnd(event) {
     // Store the current problem
     problem = getElementById('problem')
 
-    
     //console.log("touchEnd",event.target)
     //checkAnswer(clonedElement);
     checkAnswer(event.target);
@@ -794,7 +803,7 @@ function touchEnd(event) {
 function setContainerFontSize() {
   //return;
   console.group("setContainerFontSize")
-  console.count("Updatin font sizes")
+  console.count("Updating font sizes")
   /*const problemContainer = getElementById('problem-container');
   const answerContainer = getElementById('answer-container');
   
@@ -819,7 +828,7 @@ function selectAnswerByText(text) {
   //console.group("selectAnswerByText: ",text)
   const selected_answers = Array.from(document.querySelectorAll('.answer')).filter(answer => answer.textContent == text)
   for (const answer of selected_answers) {
-      console.log("answer.classList.add('incorrect');")
+    answer.resetClasses()
   }
   //console.groupEnd("selectAnswerByText: ",text) 
   return selected_answers
