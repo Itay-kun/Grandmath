@@ -93,9 +93,12 @@ flex-direction: column;
 
 #answers_container {
   display: flex;
-  
+  flex-basis: 200px;
+  flex-grow: 0;
+  flex-shrink: 0;
+
   align-content:stretch;
-  justify-content:baseline;
+  justify-content:center;
   
   position: relative;
   column-gap: 0.5ch;
@@ -103,10 +106,10 @@ flex-direction: column;
 }
 
 .answer {
-  min-height:3ch;
-  min-width:3ch;
+  height:max-content;
+  width:max-content;
   
-  /*aspect-ratio: 1 / 1;*/
+  aspect-ratio: 1 / 1;
 
   position: relative;
   flex-grow: 1;
@@ -118,7 +121,7 @@ flex-direction: column;
   color: var(--main-color);
   background-color: #000;
   opacity: 84%;
-  font-size:var(--default-font-size);
+  font-size:calc(var(--default-font-size)*var(--font-size-multiplier));
 }
 
 .answer:active {

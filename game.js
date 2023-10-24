@@ -470,7 +470,7 @@ resetClasses(){
 reset(){
   this.removeEventListener('pointermove',dragMove);
   
-  resetClasses()
+  this.resetClasses()
   
   this.currentX = 0
   this.currentY = 0
@@ -848,6 +848,7 @@ function drag(event) {
 
 function dragMove(event) {
 
+  console.info(event)
   const rect = event.target.getBoundingClientRect();
 
   // Calculate the new position based on the touch movement
