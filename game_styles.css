@@ -73,11 +73,12 @@ html,body {
  justify-content: center;
  align-items: center;
  text-align: center;
+ text-align: center;
 }
 
 #problem-container {
   font-size: var(--default-font-size);
-  margin-bottom: 25%;
+  margin-bottom: 10%;
 }
 
 .problem {  
@@ -109,8 +110,6 @@ flex-direction: column;
   height:max-content;
   width:max-content;
   
-  aspect-ratio: 1 / 1;
-
   position: relative;
   flex-grow: 1;
   flex-shrink: 1;
@@ -119,8 +118,7 @@ flex-direction: column;
   text-align: center;
   
   color: var(--main-color);
-  background-color: #000;
-  opacity: 84%;
+  background-color: #000000bb;
   font-size:calc(var(--default-font-size)*var(--font-size-multiplier));
 }
 

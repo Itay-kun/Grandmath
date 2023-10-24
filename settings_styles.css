@@ -33,7 +33,6 @@ body::after {
 
 body::after {
 	font-family: "Inter", sans-serif;
-	line-height: 1.5;
 	justify-content: center;
 	font-size: var(--default-font-size);
 }
@@ -83,7 +82,7 @@ body::after {
 
 #title {
  text-align: center;
- scale: calc(var(--font-size-multipeler)*2)
+ scale: calc(var(--font-size-multipeler)*1.5)
 }
 
 input[type="checkbox" i]:checked {
