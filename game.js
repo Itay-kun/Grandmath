@@ -1086,7 +1086,7 @@ function loadGameSettings() {
     else {
       applied_settings = defaultSettings//JSON.parse(defaultSettings)
       localStorage.setItem("grandmath_settings",JSON.stringify(defaultSettings))
-      // window.alert("default settings loaded")
+      window.alert("default settings loaded")
     }
 
     document.body.style.setProperty('--main-color', applied_settings['textColor']);
@@ -1110,6 +1110,7 @@ function setupGame() {
   
 //Get The saved settings
 settings = loadGameSettings();
+if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
   // window.alert(JSON.stringify(settings))
 	
 	// titleElement.addEventListener("click", openFullscreen(self));
