@@ -1085,6 +1085,7 @@ function loadGameSettings() {
     }
     else {
       applied_settings = defaultSettings//JSON.parse(defaultSettings)
+      toggleSettingsPopover()
       localStorage.setItem("grandmath_settings",JSON.stringify(defaultSettings))
       window.alert("default settings loaded")
     }
