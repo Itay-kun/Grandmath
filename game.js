@@ -1086,6 +1086,7 @@ function loadGameSettings() {
     else {
       applied_settings = defaultSettings//JSON.parse(defaultSettings)
       toggleSettingsPopover()
+      toggleSettingsPopover()
       localStorage.setItem("grandmath_settings",JSON.stringify(defaultSettings))
       window.alert("default settings loaded")
     }
@@ -1183,6 +1184,7 @@ if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
 
 function toggleSettingsPopover() {
   popover = document.getElementById('popover-container');
+  console.count("toggle settings popover")
   fetch('settings.html')
   .then(response => response.text())
   .then(data => {
