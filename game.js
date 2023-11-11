@@ -1131,6 +1131,9 @@ if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
   var problemElement = new Problem();
   problem = problemElement;
   problemElement.id = 'problem';
+  
+  //Give Bigger font size to the question
+  problemElement.classList.add("bigger-font")
 	
   problemContainer.appendChild(problemElement);
 
