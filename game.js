@@ -1100,7 +1100,7 @@ function loadGameSettings() {
 function openSettingsWindow(game_window=window) {
   console.group("openSettingsWindow")
   console.log(arguments)
-  var settings_window = window.open("settings.html", "_blank")
+  var settings_window = window.open("settings.html", settingsString)
   console.log(settings_window);
   console.groupEnd("openSettingsWindow")
 }
