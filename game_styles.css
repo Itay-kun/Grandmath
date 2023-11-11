@@ -55,7 +55,7 @@ html,body {
   /* box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem; */
   height: 100%;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 10%;
   transition: all 500ms;
   overflow: hidden;
 
@@ -101,7 +101,7 @@ html,body {
 
 #answers_container {
   display: flex;
-  font-size: clamp(20px, 2vw, 3vw);
+  font-size: clamp(20px, 4vw, 5vw);
   /* flex-basis: 200px; */
   /* flex-grow: 1; */
   /* flex-shrink: 1; */
@@ -198,9 +198,9 @@ html,body {
 }
 
 /* Responsive styling for the boxes */
-#problem-container,
-#answers-container {
- width:90%;
+#problem-container {
+ width:95%;
+ justify-self: center;
 }
 
 #answer-container{
