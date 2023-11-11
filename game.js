@@ -962,8 +962,11 @@ function checkAnswer(answer_object) {
     if (result == "equals"){
         target.classList.add('correct')
         result_element.textContent = 'Correct!';
-        problem.solveProblem()
-      
+        try {
+          document.body.append(problem.solveProblem())
+        } catch (error) {
+          ""
+        }      
         //speak(result.textContent+" "+problem+" equals "+answer)
         result_element.classList.remove('incorrect')
         result_element.classList.add('correct')
