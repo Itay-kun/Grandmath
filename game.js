@@ -60,6 +60,7 @@ class Problem extends HTMLElement {
 
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
+    this.startTime = Date.now(); // Initialize start time
     //ToDo: make that a static function of "Answer" class
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
@@ -113,6 +114,20 @@ static toMath(question_text){
 	return powers
 }
 
+solveProblem() {
+  this.endTime = Date.now();
+  let elapsedTime = this.endTime - this.startTime;
+  this.displayElapsedTime(elapsedTime);
+}
+
+// Method to display elapsed time
+displayElapsedTime(elapsedTime) {
+  let seconds = Math.floor(elapsedTime / 1000);
+  string = `Time taken to solve: ${seconds} seconds`
+  console.log(string);
+  return string;
+  // Optionally, update the UI to display the elapsed time
+}
 
 static parseQuestion(question_text = this.question) {
   question_text = question_text.toString()
@@ -947,6 +962,7 @@ function checkAnswer(answer_object) {
     if (result == "equals"){
         target.classList.add('correct')
         result_element.textContent = 'Correct!';
+        problem.solveProblem()
       
         //speak(result.textContent+" "+problem+" equals "+answer)
         result_element.classList.remove('incorrect')
