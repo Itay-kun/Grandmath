@@ -82,7 +82,7 @@ body::after {
 
 #title {
  text-align: center;
- scale: calc(var(--font-size-multipeler)*1.5)
+ /* scale: calc(var(--font-size-multipeler)*1.5) */
 }
 
 input[type="checkbox" i]:checked {

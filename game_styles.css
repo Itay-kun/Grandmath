@@ -86,6 +86,7 @@ html,body {
   display: flex;
   flex-direction: column;
   position:relative;
+  font-size: clamp(var(--default-font-size), 10vw, 15vw);
   /* top:1em; */
   /* bottom:2ch; */
   flex-basis: 0;
@@ -98,6 +99,7 @@ html,body {
 
 #answers_container {
   display: flex;
+  font-size: clamp(20px, 4vw, 5vw);
   /* flex-basis: 200px; */
   flex-grow: 1;
   flex-shrink: 1;
@@ -107,6 +109,7 @@ html,body {
   
   position: relative;
   column-gap: 0.5ch;
+  
   column-count: var(--number-of-answers);
 }
 
@@ -117,8 +120,6 @@ html,body {
   position: relative;
   flex-grow: 1;
   flex-shrink: 1;
-  
-  font-size: clamp(20px, 4vw, 5vw);
 
   cursor: move;
   text-align: center;

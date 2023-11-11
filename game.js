@@ -1198,8 +1198,8 @@ function toggleSettingsPopover() {
   .catch(error => {
     console.error('Error:', error);
   });
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flow' : 'none';
-  if(popover.style.display !== 'none'){    addOperatorsIcons();}
+  popover.style.visibility = (popover.style.visibility === 'collapse' || popover.style.visibility === '') ? 'visible' : 'collapse';
+  if(popover.style.visibility !== 'collapse'){    addOperatorsIcons();}
 }
 
 try{titleElement.addEventListener('dblclick', toggleSettingsPopover)} catch {console.trace("Operators class not set yet")}
