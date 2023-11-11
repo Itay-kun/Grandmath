@@ -664,7 +664,7 @@ function say(text, language="en-US") {
 }
 
 // Create the title element
-var titleElement = document.createElement('title');
+var titleElement = document.createElement('div');
 titleElement.textContent = 'Grandmath';
 titleElement.id = 'title';
 document.head.appendChild(titleElement);

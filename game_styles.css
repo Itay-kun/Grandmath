@@ -78,37 +78,39 @@ html,body {
 
 #problem-container {
   font-size: var(--default-font-size);
-  margin-bottom: 10%;
-}
-
-.problem {
-  font-size: calc(var(--default-font-size)*var(--font-size-multiplier));
-  display: flex;
-  flex-direction: column;
-  position:relative;
-  font-size: clamp(var(--default-font-size), 10vw, 15vw);
-  /* top:1em; */
-  /* bottom:2ch; */
-  flex-basis: 0;
-  flex-grow: 1;
+  margin-bottom: 15%;
 }
 
 .bigger-font{
   font-size: calc(var(--default-font-size)*1.5);
 }
 
+.problem {
+  font-size: clamp(var(--default-font-size), 10vw, 15vw);
+  
+  font-size: calc(var(--default-font-size)*var(--font-size-multiplier));
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  
+  /* top:1em; */
+  /* bottom:2ch; */
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
 #answers_container {
   display: flex;
-  font-size: clamp(20px, 4vw, 5vw);
+  font-size: clamp(20px, 2vw, 3vw);
   /* flex-basis: 200px; */
-  flex-grow: 1;
-  flex-shrink: 1;
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
 
   align-content:stretch;
   justify-content:center;
   
   position: relative;
-  column-gap: 0.5ch;
+  column-gap: 1vw;
   
   column-count: var(--number-of-answers);
 }
