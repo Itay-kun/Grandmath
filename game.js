@@ -667,7 +667,7 @@ function say(text, language="en-US") {
 var titleElement = document.createElement('div');
 titleElement.textContent = 'Grandmath';
 titleElement.id = 'title';
-document.head.appendChild(titleElement);
+document.body.appendChild(titleElement);
 
 var questionsCounter = document.createElement('div');
   questionsCounter.textContent = Problem.counter;
@@ -1180,7 +1180,7 @@ if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
   //titleElement.addEventListener('click', resetGame);
 
   // Initial game setup
-  resetGame();
+  // resetGame();
   //displayProblem(problemElement,true);
   problemElement.displayQuestion()
 }
