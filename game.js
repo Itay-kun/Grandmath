@@ -664,7 +664,7 @@ function say(text, language="en-US") {
 }
 
 // Create the title element
-var titleElement = document.createElement('div');
+var titleElement = document.createElement('title');
 titleElement.textContent = 'Grandmath';
 titleElement.id = 'title';
 document.head.appendChild(titleElement);
@@ -1198,7 +1198,7 @@ function toggleSettingsPopover() {
   .catch(error => {
     console.error('Error:', error);
   });
-  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flex' : 'none';
+  popover.style.display = (popover.style.display === 'none' || popover.style.display === '') ? 'flow' : 'none';
   if(popover.style.display !== 'none'){    addOperatorsIcons();}
 }
 
