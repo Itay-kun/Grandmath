@@ -673,7 +673,7 @@ var questionsCounter = document.createElement('div');
   questionsCounter.textContent = Problem.counter;
   questionsCounter.textContent = Problem.counter;
   questionsCounter.id = 'questions_counter';
-  questionsCounter.class = 'title';
+  questionsCounter.class = 'questionsCounter';
 titleElement.appendChild(questionsCounter);
 
 
