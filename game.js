@@ -123,7 +123,7 @@ solveProblem() {
 // Method to display elapsed time
 displayElapsedTime(elapsedTime) {
   let seconds = Math.floor(elapsedTime / 1000);
-  string = `Time taken to solve: ${seconds} seconds`
+  let string = `Time taken to solve: ${seconds} seconds`
   console.log(string);
   return string;
   // Optionally, update the UI to display the elapsed time
