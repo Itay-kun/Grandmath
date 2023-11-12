@@ -60,11 +60,11 @@ class Problem extends HTMLElement {
 
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
-    this.startTime = Date.now(); // Initialize start time
     //ToDo: make that a static function of "Answer" class
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
     super();
+    this.startTime = Date.now(); // Initialize start time
     console.group("Problem ",Problem.counter)
     
     Problem.highestNumber = highestNumber;
