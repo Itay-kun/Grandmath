@@ -72,6 +72,8 @@ class Problem extends HTMLElement {
   lowestNumber=parseInt(settings?.lowestNumber);
   startTime;
   endTime;
+  elapsedTime;
+  tries = 0; //Add a functionality of counting how many tries where per question
 
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
@@ -148,7 +150,8 @@ solveProblem() {
 // Method to display elapsed time
 displayElapsedTime(elapsedTime) {
   duration = msToTime(elapsedTime);
-  console.log(`Time taken to solve: ${duration} seconds`);
+  console.log(`Time taken to solve: ${duration}`);
+  document.body.append(problem.solveProblem()+"\n") //Add it on the side or something
   return duration;
 }
 
@@ -294,7 +297,7 @@ read(language="en-US"){
     //this._question = new_question
 
     if(!this._question) {} 
-    else{    say("updating question to "+new_question)}
+    else{say("updating question to "+new_question)}
     this.recalcAnswer()} else {say("question is set already")};
     return this
   }
@@ -416,13 +419,6 @@ class Answer extends HTMLElement {
     this.textContent = text;
     this.ariaValueNow = text;
     
-    /*
-    //Move With Mouse
-    this.addEventListener('dragstart', drag);
-    this.addEventListener('dragmove', dragMove);
-    this.addEventListener('dragend', dragEnd);
-    */
-
     this.position = this.getBoundingClientRect()
 
     this.onpointerdown = down_handler;
@@ -473,12 +469,12 @@ get width(){
   return this.style.width;
 }
 
-get height(){
-  return this.style.height;
-}
-
 set width(new_width){
   return this.style.width = new_width;
+}
+
+get height(){
+  return this.style.height;
 }
 
 set height(new_highet){
@@ -530,14 +526,15 @@ get currentX(){
   return(this.style.left)
 }
 
-get currentY(){
-  return(this.style.top)
-}
-
 set currentY(y){
   this._currentY = y
   this.style.top = y+"px";
 }
+
+get currentY(){
+  return(this.style.top)
+}
+
 
 addToParent(parentElement = getElementById("problem-container")) {
     problem = getElementById('problem')
@@ -986,9 +983,8 @@ function checkAnswer(answer_object) {
         target.classList.add('correct')
         result_element.textContent = 'Correct!';
         try {
-          document.body.append(problem.solveProblem())
-        } catch (error) {
-          ""
+          problem.displayElapsedTime()
+        } catch (error) {          ""
         }      
         //speak(result.textContent+" "+problem+" equals "+answer)
         result_element.classList.remove('incorrect')
