@@ -57,6 +57,8 @@ class Problem extends HTMLElement {
   static counter = 0
   highestNumber=parseInt(settings?.highestNumber);
   lowestNumber=parseInt(settings?.lowestNumber);
+  startTime;
+  endTime;
 
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
@@ -64,7 +66,7 @@ class Problem extends HTMLElement {
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
     super();
-    this.startTime = Date.now(); // Initialize start time
+    this.startTimer()
     console.group("Problem ",Problem.counter)
     
     Problem.highestNumber = highestNumber;
@@ -112,6 +114,11 @@ class Problem extends HTMLElement {
 static toMath(question_text){
   powers = question_text.match(/\^\d+/)
 	return powers
+}
+
+startTimer(){
+  this.startTime = Date.now(); // Initialize start time
+  console.info(this.startTime)
 }
 
 solveProblem() {
