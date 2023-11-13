@@ -230,7 +230,8 @@ read(language="en-US"){
     if(value.toString!="NaN"){
     this._num2 = value;
     this.updateQuestion()
-    updateOrCreateElement('num2', this.num2);  console.trace("updating num2")
+    updateOrCreateElement('num2', this.num2);  
+    // console.trace("updating num2")
     }
   }
 
@@ -244,7 +245,8 @@ read(language="en-US"){
     }
     this._operator = value;
     this.updateQuestion();
-    updateOrCreateElement('operator', this.operator); console.trace("updating operator");
+    updateOrCreateElement('operator', this.operator);
+    //  console.trace("updating operator");
   }
 
   get highestNumber() {
@@ -289,7 +291,7 @@ read(language="en-US"){
   updateQuestion(num1=this.num1,operator=this.operator,num2=this.num2){
     if(num1&&operator&&num2){
         let new_question = ([num1,operator,num2]).join(" ")
-        console.trace("updateQuestion")
+        // console.trace("updateQuestion")
         this.question = new_question
       }
   }
@@ -489,7 +491,6 @@ get id(){
   }
   
   set id(new_id="a_"+this.textContent){
-    if(this.id) {console.trace("set id should not be used")}
     if(this.id != new_id){
     if(this.id!=undefined) {say("updating "+this.id+" to "+new_id)}
     this._id = "a_"+new_id
