@@ -70,17 +70,20 @@ class Problem extends HTMLElement {
   static counter = 0
   highestNumber=parseInt(settings?.highestNumber);
   lowestNumber=parseInt(settings?.lowestNumber);
-  startTime;
-  endTime;
-  elapsedTime;
-  tries = 0; //Add a functionality of counting how many tries where per question
-
+  
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     Problem.counter = Problem.counter + 1
     //ToDo: make that a static function of "Answer" class
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
     super();
+
+    this.startTime;
+    this.endTime;
+    this.elapsedTime;
+    this.duration;
+    this.tries = 0; //Add a functionality of counting how many tries where per question
+
     this.startTimer()
     console.group("Problem ",Problem.counter)
     
@@ -151,7 +154,7 @@ solveProblem() {
 displayElapsedTime(elapsedTime) {
   duration = msToTime(elapsedTime);
   console.log(`Time taken to solve: ${duration}`);
-  document.body.append(problem.solveProblem()+"\n") //Add it on the side or something
+  document.body.append(duration) //Add it on the side or something
   return duration;
 }
 
