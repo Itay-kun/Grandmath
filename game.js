@@ -151,7 +151,7 @@ solveProblem() {
 }
 
 // Method to display elapsed time
-displayElapsedTime(elapsedTime) {
+displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
   duration = msToTime(elapsedTime);
   console.log(`Time taken to solve: ${duration}`);
   document.body.append(duration) //Add it on the side or something
@@ -214,7 +214,8 @@ read(language="en-US"){
     if(value.toString!="NaN"){
     this._num1 = value;
     this.updateQuestion()
-    updateOrCreateElement('num1', this.num1); console.trace("updating num1")
+    updateOrCreateElement('num1', this.num1);
+    //  console.trace("updating num1")
   }
   }
 
