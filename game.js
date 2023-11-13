@@ -24,6 +24,19 @@ window.onfocus = loadGameSettings
 
 const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];
 
+function msToTime(duration) {
+  var milliseconds = parseInt((duration % 1000) / 100),
+    seconds = Math.floor((duration / 1000) % 60),
+    minutes = Math.floor((duration / (1000 * 60)) % 60),
+    hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+  hours = (hours < 10) ? "0" + hours : hours;
+  minutes = (minutes < 10) ? "0" + minutes : minutes;
+  seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+}
+
 function setCSSvar(css_var,new_value){
 bodyStyles = document.body.style;
     bodyStyles.setProperty(css_var,new_value);
@@ -121,18 +134,22 @@ startTimer(){
   console.info(this.startTime)
 }
 
-solveProblem() {
+stopTimer(){
   this.endTime = Date.now();
+  console.info(this.endTime)
+}
+
+solveProblem() {
+  stopTimer()
   let elapsedTime = this.endTime - this.startTime;
   this.displayElapsedTime(elapsedTime);
 }
 
 // Method to display elapsed time
 displayElapsedTime(elapsedTime) {
-  let seconds = Math.floor(elapsedTime / 1000);
-  console.log(`Time taken to solve: ${seconds} seconds`);
-  return seconds;
-  // Optionally, update the UI to display the elapsed time
+  duration = msToTime(elapsedTime);
+  console.log(`Time taken to solve: ${duration} seconds`);
+  return duration;
 }
 
 static parseQuestion(question_text = this.question) {
