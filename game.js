@@ -142,7 +142,7 @@ stopTimer(){
 }
 
 solveProblem() {
-  stopTimer()
+  this.stopTimer()
   let elapsedTime = this.endTime - this.startTime;
   this.displayElapsedTime(elapsedTime);
 }
