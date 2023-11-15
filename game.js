@@ -77,7 +77,7 @@ class Problem extends HTMLElement {
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
     super();
-
+    this.attemps = 0
     this.startTime;
     this.endTime;
     this.elapsedTime;
@@ -552,6 +552,7 @@ checkAnswer(){
       problem = document.getElementById('problem')
       problem.recalcAnswer()
       realAnswer = problem.answer
+      problem.attemps +=1
     } catch {undefined}
   return this.textContent == realAnswer
 }
