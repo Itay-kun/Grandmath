@@ -72,18 +72,17 @@ class Problem extends HTMLElement {
   lowestNumber=parseInt(settings?.lowestNumber);
   
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
-    Problem.counter = Problem.counter + 1
     //ToDo: make that a static function of "Answer" class
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     Answer.counter = 0;
-    super();
-    this.attemps = 0
     this.startTime;
     this.endTime;
     this.elapsedTime;
     this.duration;
-    this.tries = 0; //Add a functionality of counting how many tries where per question
-
+    this.attemps = 0 //Add a functionality of counting how many tries where per question
+    
+    super();
+    
     this.startTimer()
     console.group("Problem ",Problem.counter)
     
@@ -94,7 +93,7 @@ class Problem extends HTMLElement {
     
     this.class = "problem"
     this.lang = "en-US"
-    
+
     //ToDo: convert the random element choser to an arrow function outside for readability and reusability
     this.num1 = numbers_set[Math.floor(Math.random() * numbers_set.length)];
     this.operator = operator;
@@ -127,6 +126,7 @@ class Problem extends HTMLElement {
     this.answers = Answer.generateRandomAnswers(4, Problem.lowestNumber, Problem.highestNumber,this);
 
       console.groupEnd("Problem")
+      Problem.counter = Problem.counter + 1
       return (this)
   }
 static toMath(question_text){
@@ -151,7 +151,7 @@ solveProblem() {
 }
 
 // Method to display elapsed time
-displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
+static displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
   duration = msToTime(elapsedTime);
   console.log(`Time taken to solve: ${duration}`);
   document.body.append(duration) //Add it on the side or something
@@ -547,9 +547,8 @@ addToParent(parentElement = getElementById("problem-container")) {
     problem.answer = problem.recalcAnswer() //Should be moved elsewhere if possible
 }
   
-checkAnswer(){
+checkAnswer(problem = document.getElementById('problem')){
   try {
-      problem = document.getElementById('problem')
       problem.recalcAnswer()
       realAnswer = problem.answer
       problem.attemps +=1
