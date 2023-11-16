@@ -1195,7 +1195,7 @@ if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
 
 
   // Initial game setup
-  // resetGame();
+  resetGame();
   //displayProblem(problemElement,true);
   problemElement.displayQuestion()
 }
