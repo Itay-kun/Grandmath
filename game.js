@@ -74,11 +74,11 @@ class Problem extends HTMLElement {
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     
     Answer.counter = 0; //ToDo: make that a static function of "Answer" class
-    startTime=0;
-    endTime=0;
-    elapsedTime = 0;
-    duration = 0;
-    attemps = 0 //Add a functionality of counting how many tries where per question
+    let startTime=0;
+    let endTime=0;
+    let elapsedTime = 0;
+    let duration = 0;
+    let attemps = 0 //Add a functionality of counting how many tries where per question
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     super();
     
