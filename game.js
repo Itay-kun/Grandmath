@@ -72,16 +72,19 @@ class Problem extends HTMLElement {
   lowestNumber=parseInt(settings?.lowestNumber);
   
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
-    //ToDo: make that a static function of "Answer" class
-    document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
-    Answer.counter = 0;
-    this.startTime;
-    this.endTime;
-    this.elapsedTime;
-    this.duration;
-    this.attemps = 0 //Add a functionality of counting how many tries where per question
     
+    Answer.counter = 0; //ToDo: make that a static function of "Answer" class
+    startTime;
+    endTime;
+    elapsedTime = 0;
+    duration = 0;
+    attemps = 0 //Add a functionality of counting how many tries where per question
+    document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     super();
+    
+    this.endTime = this.startTime;
+    this.elapsedTime = 0;
+    this.duration = 0;
     
     this.startTimer()
     console.group("Problem ",Problem.counter)
@@ -845,30 +848,6 @@ function touchEnd(event) {
 
 /****************************************************************************************/
 
-function setContainerFontSize() {
-  //return;
-  console.group("setContainerFontSize")
-  console.count("Updating font sizes")
-  /*const problemContainer = getElementById('problem-container');
-  const answerContainer = getElementById('answer-container');
-  
-  const problemText = document.getElementById('problem');
-  //const answers = document.querySelectorAll('.answer');
-  
-  const answers = document.getElementsByClassName('answer')
-  
-  const problemFontSize = problemContainer.offsetWidth *0.15; //Let it be editable from the menu
-  const answerFontSize = answerContainer.offsetWidth *0.2;	//Let it be editable from the menu
-  
-  problemText.style.fontSize = problemFontSize + 'px';
-  for (answer of answers) {
-    answer.style.fontSize = answerFontSize + 'px';
-  };*/
-  console.groupEnd("setContainerFontSize") 
-}
-
-/****************************************************************************************/
-
 function selectAnswerByText(text) {
   //console.group("selectAnswerByText: ",text)
   const selected_answers = Array.from(document.querySelectorAll('.answer')).filter(answer => answer.textContent == text)
@@ -1214,13 +1193,6 @@ if(!localStorage.getItem("grandmath_settings")) {toggleSettingsPopover()}
     answersContainer.appendChild(answer);
   }
 
-
-// Call the setContainerFontSize function initially and on window resize
-// setContainerFontSize();
-// window.addEventListener('resize', setContainerFontSize);
-
-  // Event listener for the "New Question" button
-  //titleElement.addEventListener('click', resetGame);
 
   // Initial game setup
   // resetGame();
