@@ -74,8 +74,8 @@ class Problem extends HTMLElement {
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     
     Answer.counter = 0; //ToDo: make that a static function of "Answer" class
-    startTime;
-    endTime;
+    startTime=0;
+    endTime=0;
     elapsedTime = 0;
     duration = 0;
     attemps = 0 //Add a functionality of counting how many tries where per question
