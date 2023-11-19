@@ -587,17 +587,9 @@ customElements.define('optional-answer', Answer);
 
 //Add keybinding for the answers
 document.addEventListener('keydown', function(event) {
-  console.log("a_"&event.key)
-  if (event.key === '1') {
-      document.getElementById('a_1').click();
-  } else if (event.key === '2') {
-      document.getElementById('a_2').click();
-  } else if (event.key === '3') {
-      document.getElementById('a_3').click();
-  } else if (event.key === '4') {
-      document.getElementById('a_4').click();
-  }
-});
+  console.log("a_"+event.key)
+	try{checkAnswer(answers[event.key-1])} catch{}
+  })
 
 function updateOrCreateElement(id, content, containerId = 'question-container',object_type='math') {
     //console.group("updateOrCreateElement") 
