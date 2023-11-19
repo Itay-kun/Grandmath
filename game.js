@@ -585,6 +585,19 @@ checkAnswer(problem = document.getElementById('problem')){
 
 customElements.define('optional-answer', Answer);
 
+//Add keybinding for the answers
+document.addEventListener('keydown', function(event) {
+  if (event.key === '1') {
+      document.getElementById('a1').click();
+  } else if (event.key === '2') {
+      document.getElementById('a2').click();
+  } else if (event.key === '3') {
+      document.getElementById('a3').click();
+  } else if (event.key === '4') {
+      document.getElementById('a4').click();
+  }
+});
+
 function updateOrCreateElement(id, content, containerId = 'question-container',object_type='math') {
     //console.group("updateOrCreateElement") 
     let element = getElementById(id);
