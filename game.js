@@ -983,9 +983,11 @@ function checkAnswer(answer_object) {
         resetGame();
       }	else {      
         if (result == "smaller"){
-        say("try a bigger number")    
+        say("try a bigger number")
+        preoblem.read()
       } else {
         say("try a smaller number")
+        preoblem.read()
       } 
 
         result_element.classList.add('incorrect')
