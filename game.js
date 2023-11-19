@@ -587,6 +587,7 @@ customElements.define('optional-answer', Answer);
 
 //Add keybinding for the answers
 document.addEventListener('keydown', function(event) {
+  console.log("a_"&event.key)
   if (event.key === '1') {
       document.getElementById('a_1').click();
   } else if (event.key === '2') {
