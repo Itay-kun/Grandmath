@@ -983,10 +983,10 @@ function checkAnswer(answer_object) {
         resetGame();
       }	else {      
         if (result == "smaller"){
-        say("try a bigger number")
+        say("try a bigger number, the question was "+question)
         preoblem.read()
       } else {
-        say("try a smaller number")
+        say("try a smaller number, the question was "+question)
         preoblem.read()
       } 
 
