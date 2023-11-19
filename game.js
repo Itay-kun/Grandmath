@@ -588,13 +588,13 @@ customElements.define('optional-answer', Answer);
 //Add keybinding for the answers
 document.addEventListener('keydown', function(event) {
   if (event.key === '1') {
-      document.getElementById('a1').click();
+      document.getElementById('a_1').click();
   } else if (event.key === '2') {
-      document.getElementById('a2').click();
+      document.getElementById('a_2').click();
   } else if (event.key === '3') {
-      document.getElementById('a3').click();
+      document.getElementById('a_3').click();
   } else if (event.key === '4') {
-      document.getElementById('a4').click();
+      document.getElementById('a_4').click();
   }
 });
 
