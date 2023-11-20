@@ -8,15 +8,8 @@
 </head>
 
 <body>
+  <script src="settings.js" defer></script>
   <div>settings</div>
-  <br>
-  <fieldset id="buttons" class="buttons">
-    <br>
-    <tr>
-    <td><button id="saveSettings" type="button" class="button" onclick="saveSettings(false)">Save Setings</button></td>
-    <td><button id="loadSettings" type="button" class="button" onclick="loadSettings()">Load Setings</button></td>
-  </tr>  <br>
-  </fieldset>
   <form id="settings_form" class="settings-grid">
 
     <fieldset id="operator" class="operators">
@@ -61,7 +54,14 @@
     </fieldset>
 
   </form>
-  <script src="settings.js" defer></script>
+  <br>
+  <fieldset id="buttons" class="buttons">
+    <br>
+    <tr>
+    <td><button id="saveSettings" type="button" class="button" onclick="saveSettings(false)">Save Setings</button></td>
+    <td><button id="loadSettings" type="button" class="button" onclick="loadSettings()">Load Setings</button></td>
+  </tr>  <br>
+  </fieldset>
 </body>
 
 </html>

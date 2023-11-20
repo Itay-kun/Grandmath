@@ -17,14 +17,14 @@ body::after {
   	flex-wrap: nowrap;
   	align-items: center; */
 
-	width: var(--max-size);
-	height: var(--max-size);
+	/* width: var(--max-size);
+	height: var(--max-size); */
 }
 
 body::after {
 	font-family: "Inter", sans-serif;
 	justify-content: center;
-	font-size: var(--default-font-size);
+	/* font-size: var(--default-font-size); */
 }
 
 #numbers_range,#synUtterance,.operators{
@@ -54,7 +54,7 @@ body::after {
   color: #fff;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
   max-height: 100%;
-  width: 90%;
+  /* width: 90%; */
   border-radius: 4px;
   transition: all 300ms;
   /*overflow: hidden;*/
