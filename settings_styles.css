@@ -3,7 +3,7 @@
 :root::after {
   --background-color:black;
   --selection-color:#2260ff;
-  --max-size: 100%;
+  --max-size: 100vw;
   /* z-index: 100; */
 }
 
@@ -16,16 +16,6 @@ body::after {
   	flex-direction: column;
   	flex-wrap: nowrap;
   	align-items: center; */
-
-	/*support Safari 3+*/
-	-webkit-user-select: none;
-
-	/*support Internet Explorer 10+*/
-	-ms-user-select: none;
-	-ms-touch-action: none;
-
-	touch-action: none;
-	user-select: none;
 
 	width: var(--max-size);
 	height: var(--max-size);
@@ -82,7 +72,6 @@ body::after {
 
 #title {
  text-align: center;
- /* scale: calc(var(--font-size-multipeler)*1.5) */
 }
 
 input[type="checkbox" i]:checked {
@@ -222,8 +211,7 @@ input[type="checkbox" i]:checked {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 7rem;
-	min-height: 7rem;
+	/* min-height: 7rem; */
 	border-radius: 0.5rem;
 	border: 2px solid #b5bfd9;
 	transition: 0.15s ease;
