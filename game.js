@@ -627,7 +627,7 @@ function updateOrCreateElement(id, content, containerId = 'question-container',o
 function createMathQuestion(question_text = question) {
   //How do i add a validation for actual question format?
   if(!question_text) return (new Error("no question given as input"))
-  Problem.parseQuestion(question_text)
+  let questionObject = Problem.parseQuestion(question_text)
   const container = document.createElement('div');
   container.className = 'math-question-container';
 
