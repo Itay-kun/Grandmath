@@ -1041,10 +1041,10 @@ function checkAnswer(answer_object) {
       }	else {      
         if (result == "smaller"){
         say("try a bigger number; the question was "+question)
-        preoblem.read()
+        problem.read()
       } else {
         say("try a smaller number; the question was "+question)
-        preoblem.read()
+        problem.read()
       } 
 
         result_element.classList.add('incorrect')
