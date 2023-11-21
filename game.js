@@ -124,14 +124,15 @@ class Problem extends HTMLElement {
         this.question = '';
         this.answer = '';
     }
-		// Generate 4 random options and set the correct answer
-    
+		
+    // Generate 4 random options and set the correct answer
     this.answers = Answer.generateRandomAnswers(4, Problem.lowestNumber, Problem.highestNumber,this);
 
       console.groupEnd("Problem")
       Problem.counter = Problem.counter + 1
       return (this)
   }
+
 static toMath(question_text){
   powers = question_text.match(/\^\d+/)
 	return powers
@@ -201,7 +202,7 @@ displayQuestion() {
 
 
 read(language="en-US"){
-  say(this.textContent.replace("-","minus"),this.lang)
+  say(this.textContent.replace("-","minus").replace("*","times"),this.lang)
 }
   // Getters and setters for the properties
   get num1() {
@@ -620,6 +621,60 @@ function updateOrCreateElement(id, content, containerId = 'question-container',o
     //console.groupEnd("updateOrCreateElement") 
     return element
 }
+
+/*************************************************************** */
+//Move this to be part of "Problem" class?
+function createMathQuestion(question_text) {
+  Problem.parseQuestion(question_text)
+  const container = document.createElement('div');
+  container.className = 'math-question-container';
+
+  const numbers = questionObject.numbers || [];
+  const operators = questionObject.operators || [];
+  const leftParentheses = questionObject.leftParentheses || [];
+  const rightParentheses = questionObject.rightParentheses || [];
+
+  let numberCounter = 1, operatorCounter = 1, leftParenthesisCounter = 1, rightParenthesisCounter = 1;
+
+  for (let i = 0; i < numbers.length; i++) {
+      // Add left parentheses if any
+      for (let j = 0; j < (leftParentheses[i] || 0); j++) {
+          let leftParenthesis = createDiv('(', `leftParenthesis${leftParenthesisCounter}`);
+          container.appendChild(leftParenthesis);
+          leftParenthesisCounter++;
+      }
+
+      // Add number
+      let numberDiv = createDiv(numbers[i], `number${numberCounter}`);
+      container.appendChild(numberDiv);
+      numberCounter++;
+
+      // Add right parentheses if any
+      for (let j = 0; j < (rightParentheses[i] || 0); j++) {
+          let rightParenthesis = createDiv(')', `rightParenthesis${rightParenthesisCounter}`);
+          container.appendChild(rightParenthesis);
+          rightParenthesisCounter++;
+      }
+
+      // Add operator if exists
+      if (i < operators.length) {
+          let operatorDiv = createDiv(operators[i], `operator${operatorCounter}`);
+          container.appendChild(operatorDiv);
+          operatorCounter++;
+      }
+  }
+
+  document.body.appendChild(container);
+}
+
+//Function to create a div with id
+function createDiv(content, id) {
+  let div = document.createElement('div');
+  div.textContent = content;
+  div.id = id;
+  return div;
+}
+/*************************************************************** */
 
 function listAllElementsWithID(node=document.documentElement) {
     var elements = [node];

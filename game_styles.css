@@ -181,6 +181,11 @@ html,body {
   font-weight: bold;
 }
 
+.math-question-container{
+  display: flex;
+  padding: 0.1ch;
+}
+
 .question_parts {
   display:flex;
 }
