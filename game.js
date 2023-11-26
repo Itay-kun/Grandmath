@@ -761,11 +761,11 @@ function say(text, language="en-US",voice_id = 7) {
   
   //Should get it as function input
   //Make a function that get inputs and output a voice with pitch rate and volume
-  voice_id = settings[selected_voice_id]
+  voice_id = settings.selected_voice_id
   synUtterance.voice = VOICES[voice_id];
   synUtterance.volume = 100;
-  synUtterance.rate = settings[rate]//1;
-  synUtterance.pitch = settings[pitch]//1;
+  synUtterance.rate = settings.rate//1;
+  synUtterance.pitch = settings.pitch//1;
 
   window.speechSynthesis.speak(synUtterance);
 
