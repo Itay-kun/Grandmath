@@ -456,7 +456,7 @@ class Answer extends HTMLElement {
 
     //Add keybinding for the answers
   this.addEventListener('keydown', function(event) {
-    if(event.key==this.index) {     console.log("a_"+event.key);	this.checkAnswer()  }})
+    if("a_"+event.key==this.id) {     console.log("a_"+event.key);	this.checkAnswer()  }})
     return (this)
   }
 
