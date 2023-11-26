@@ -665,8 +665,7 @@ function createMathQuestion(question_text = question) {
           operatorCounter++;
       }
   }
-
-  document.body.appendChild(container);
+  return(document.getElementById("problem-container").appendChild(container));
 }
 
 //Function to create a div with id
@@ -738,7 +737,7 @@ synUtterance.onend = function() {
   }
 };
 
-function say(text, language="en-US") {
+function say(text, language="en-US",voice_id = 7) {
   console.groupCollapsed("say: ", arguments[0]);
   console.log(arguments[1]);
 
@@ -759,10 +758,14 @@ function say(text, language="en-US") {
   }
 
   synUtterance.text = text;
-  synUtterance.voice = VOICES[7];
+  
+  //Should get it as function input
+  //Make a function that get inputs and output a voice with pitch rate and volume
+  voice_id = settings[selected_voice_id]
+  synUtterance.voice = VOICES[voice_id];
   synUtterance.volume = 100;
-  synUtterance.rate = 1;
-  synUtterance.pitch = 1;
+  synUtterance.rate = settings[rate]//1;
+  synUtterance.pitch = settings[pitch]//1;
 
   window.speechSynthesis.speak(synUtterance);
 
