@@ -417,6 +417,7 @@ class Answer extends HTMLElement {
     this.classList.add('border');
     this.classList.add('margin');
     this.classList.add('padding');
+    this.setAttribute('tabindex', Answer.counter);
     
     this.id = ++Answer.counter;
     
@@ -455,8 +456,7 @@ class Answer extends HTMLElement {
     console.groupEnd("Answer")
 
     //Add keybinding for the answers
-  this.addEventListener('keydown', function(event) {
-    if("a_"+event.key==this.id) {     console.log("a_"+event.key);	this.checkAnswer()  }})
+  this.addEventListener('keydown', function(event) {if("a_"+event.key==this.id) {     console.log("a_"+event.key);	this.checkAnswer()  }})
     return (this)
   }
 
