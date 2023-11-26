@@ -417,7 +417,6 @@ class Answer extends HTMLElement {
     this.classList.add('border');
     this.classList.add('margin');
     this.classList.add('padding');
-    this.setAttribute('tabindex', Answer.counter);
     
     this.id = ++Answer.counter;
     
@@ -454,9 +453,7 @@ class Answer extends HTMLElement {
     
     //console.log(this);
     console.groupEnd("Answer")
-
-    //Add keybinding for the answers
-  this.addEventListener('keydown', function(event) {if("a_"+event.key==this.id) {     console.log("a_"+event.key);	this.checkAnswer()  }})
+    
     return (this)
   }
 
@@ -563,8 +560,6 @@ checkAnswer(problem = document.getElementById('problem')){
   return this.textContent == realAnswer
 }
 
-
-
 //ToDo: move this to Question class
   static generateRandomAnswers(numAnswers = 4, lowestNumber = 1, highestNumber = 15, problem = document.getElementById("problem")) {
       if (numAnswers > (highestNumber - lowestNumber + 1)) {
@@ -590,6 +585,18 @@ checkAnswer(problem = document.getElementById('problem')){
 }
 
 customElements.define('optional-answer', Answer);
+
+//Add keybinding for the answers
+document.addEventListener('keydown', function(event) {
+  console.log("Key pressed: " + event.key);
+  if (/^\d$/.test(event.key)) { // Check if the key is a digit
+      try {
+          checkAnswer(answers[event.key - 1]);
+      } catch (error) {
+          console.error("Error in processing answer: ", error);
+      }
+  }
+});
 
 function updateOrCreateElement(id, content, containerId = 'question-container',object_type='math') {
     //console.group("updateOrCreateElement") 
