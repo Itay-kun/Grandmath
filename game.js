@@ -24,7 +24,7 @@ window.onfocus = loadGameSettings
 
 const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];
 
-function msToTime(duration) {
+function msToTime(duration = 0) {
   var milliseconds = parseInt((duration % 1000) / 100),
     seconds = Math.floor((duration / 1000) % 60),
     minutes = Math.floor((duration / (1000 * 60)) % 60),
@@ -74,11 +74,11 @@ class Problem extends HTMLElement {
   constructor(operator=selectOperator(), highestNumber=settings.highestNumber, lowestNumber=settings.lowestNumber) {
     
     Answer.counter = 0; //ToDo: make that a static function of "Answer" class
-    let startTime=0;
-    let endTime=0;
-    let elapsedTime = 0;
-    let duration = 0;
-    let attemps = 0 //Add a functionality of counting how many tries where per question
+    var startTime=0;
+    var endTime=0;
+    var elapsedTime = 0;
+    var duration = 0;
+    var attemps = 0 //Add a functionality of counting how many tries where per question
     document.getElementById("questions_counter").textContent = [" | Question", Problem.counter].join(" ")
     super();
     
@@ -201,14 +201,18 @@ displayQuestion() {
   }
 
 
-read(language="en-US"){
-  say(this.textContent.replace("-","minus").replace("*","times"),this.lang)
-}
+  read(language="en-US"){
+    say(this.textContent.replace("-","minus").replace("*","times"),this.lang)
+  }
+
   // Getters and setters for the properties
   get num1() {
     return this._num1;
   }
 
+  /**
+   * @param {number} value
+   */
   // ToDo: Merge numbers creation for more complex questions
   set num1(value) {
     value = parseInt(value)
@@ -227,6 +231,9 @@ read(language="en-US"){
     return this._num2;
   }
 
+  /**
+   * @param {number} value
+   */
   set num2(value) {
     value = parseInt(value)
    /*if (value < this.lowestNumber || value > this.highestNumber) {
@@ -258,6 +265,9 @@ read(language="en-US"){
     return Problem.highestNumber;
   }
 
+    /**
+   * @param {number} value
+   */
   set highestNumber(value) {
     //console.log("set highestNumber",value < this.lowestNumber,value,this.lowestNumber)
     if (value < this.lowestNumber) {
@@ -280,7 +290,7 @@ read(language="en-US"){
     Problem.lowestNumber = value;
   }
 	
-	  // Getter and setter for the answers property
+  // Getter and setter for the answers property
   get answers() {
     return this._answers;
   }
