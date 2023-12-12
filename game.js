@@ -148,11 +148,6 @@ stopTimer(){
   console.info(this.endTime)
 }
 
-solveProblem() {
-  this.stopTimer()
-  let elapsedTime = this.endTime - this.startTime;
-  this.displayElapsedTime(elapsedTime);
-}
 
 // Method to display elapsed time
 static displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
@@ -161,6 +156,13 @@ static displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
   document.body.append(duration) //Add it on the side or something
   return duration;
 }
+
+solveProblem() {
+  this.stopTimer()
+  let elapsedTime = this.endTime - this.startTime;
+  Problem.displayElapsedTime(elapsedTime);
+}
+
 
 static parseQuestion(question_text = this.question) {
   question_text = question_text.toString()
