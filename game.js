@@ -133,6 +133,9 @@ class Problem extends HTMLElement {
       return (this)
   }
 
+    /**
+   * @param {string} question_text
+   */
 static toMath(question_text){
   powers = question_text.match(/\^\d+/)
 	return powers
