@@ -34,7 +34,36 @@ function msToTime(duration = 0) {
   minutes = (minutes < 10) ? "0" + minutes : minutes;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-  return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  duration = {
+    "hours": hours,
+    "minutes": minutes,
+    "seconds": seconds,
+    "milliseconds": milliseconds
+  };
+
+  return duration
+  // return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+}
+
+function addRowToTable(tableId, duration) {
+  const table = document.getElementById(tableId);
+  const row = table.insertRow(-1); // -1 means add a row at the end of the table
+
+  const durationObj = msToTime(duration);
+
+  // Add cells for hours, minutes, seconds, and milliseconds
+  const indexCell = row.insertCell(0)
+  const hoursCell = row.insertCell(1);
+  const minutesCell = row.insertCell(2);
+  const secondsCell = row.insertCell(3);
+  const millisecondsCell = row.insertCell(4);
+
+  // Set the cell values
+  indexCell.innerHTML = Problem.counter;
+  hoursCell.innerHTML = durationObj.hours;
+  minutesCell.innerHTML = durationObj.minutes;
+  secondsCell.innerHTML = durationObj.seconds;
+  millisecondsCell.innerHTML = durationObj.milliseconds;
 }
 
 function setCSSvar(css_var,new_value){
@@ -158,11 +187,10 @@ stopTimer(){
 static displayElapsedTime(question=problemElement,elapsedTime = this.endTime - this.startTime) {
   question.duration = msToTime(elapsedTime);
   console.log(`Time taken to solve: ${question.duration}`);
-  document.body.append(question.duration) //Add it on the side or something
-  return question.duration;
+  addRowToTable("durationTable", elapsedTime);
 }
 
-solveProblem() {
+questionSolved() {
   this.stopTimer()
   let elapsedTime = this.endTime - this.startTime;
   Problem.displayElapsedTime(this,elapsedTime);
@@ -1056,7 +1084,8 @@ function checkAnswer(answer_object) {
         target.classList.add('correct')
         result_element.textContent = 'Correct!';
         try {
-          problem.displayElapsedTime()
+          // problem.displayElapsedTime()
+          problem.questionSolved()
         } catch (error) {          ""
         }      
         //speak(result.textContent+" "+problem+" equals "+answer)
