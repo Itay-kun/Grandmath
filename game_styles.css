@@ -177,7 +177,7 @@ html,body {
 }
 
 #durationTable {
-  display: none; /* Hide the table initially */
+  /*display: none;  Hide the table initially */
   border-collapse: collapse; 
   /* Other styles for your table */
 }
