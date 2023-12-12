@@ -151,13 +151,15 @@ stopTimer(){
   console.info(this.endTime)
 }
 
-
+  /**
+   * @param {Problem} question
+   */
 // Method to display elapsed time
-static displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
-  this.duration = msToTime(elapsedTime);
-  console.log(`Time taken to solve: ${this.duration}`);
-  document.body.append(duration) //Add it on the side or something
-  return duration;
+static displayElapsedTime(question,elapsedTime = this.endTime - this.startTime) {
+  question.duration = msToTime(elapsedTime);
+  console.log(`Time taken to solve: ${question.duration}`);
+  document.body.append(question.duration) //Add it on the side or something
+  return question.duration;
 }
 
 solveProblem() {
