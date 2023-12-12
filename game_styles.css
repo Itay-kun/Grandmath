@@ -176,6 +176,13 @@ html,body {
   justify-content: center;
 }
 
+#durationTable, #durationTable th, #durationTable td{
+  font-size: medium;
+	border-collapse: collapse;
+	border-color: aliceblue;
+	border: 1px solid var(--main-color);
+}
+
 #result {
   position:relative;
   font-weight: bold;
