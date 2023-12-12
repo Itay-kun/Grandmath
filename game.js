@@ -151,8 +151,8 @@ stopTimer(){
 
 // Method to display elapsed time
 static displayElapsedTime(elapsedTime = this.endTime - this.startTime) {
-  duration = msToTime(elapsedTime);
-  console.log(`Time taken to solve: ${duration}`);
+  this.duration = msToTime(elapsedTime);
+  console.log(`Time taken to solve: ${this.duration}`);
   document.body.append(duration) //Add it on the side or something
   return duration;
 }
