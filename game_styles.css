@@ -176,11 +176,23 @@ html,body {
   justify-content: center;
 }
 
+#durationTable {
+  display: none; /* Hide the table initially */
+  border-collapse: collapse; 
+  /* Other styles for your table */
+}
+
+.title:hover #durationTable {
+  display: table; /* Show the table when hovering over the container */
+}
+
 #durationTable, #durationTable th, #durationTable td{
   font-size: medium;
 	border-collapse: collapse;
 	border-color: aliceblue;
 	border: 1px solid var(--main-color);
+  text-align: center; /* This centers the text horizontally */
+  vertical-align: middle; /* This centers the text vertically */
 }
 
 #result {

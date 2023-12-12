@@ -59,7 +59,7 @@ function addRowToTable(tableId, duration) {
   const millisecondsCell = row.insertCell(4);
 
   // Set the cell values
-  indexCell.innerHTML = Problem.counter;
+  indexCell.innerHTML = Problem.counter-1;
   hoursCell.innerHTML = durationObj.hours;
   minutesCell.innerHTML = durationObj.minutes;
   secondsCell.innerHTML = durationObj.seconds;
